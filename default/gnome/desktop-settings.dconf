@@ -1,0 +1,99 @@
+[app-folders]
+folder-children=['System', 'Utilities', 'YaST', 'Pardus']
+
+[app-folders/folders/Pardus]
+categories=['X-Pardus-Apps']
+name='X-Pardus-Apps.directory'
+translate=true
+
+[app-folders/folders/System]
+apps=['nm-connection-editor.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'im-config.desktop', 'org.gnome.Logs.desktop', 'org.gnome.Sysprof.desktop', 'org.gnome.SystemMonitor.desktop']
+name='X-GNOME-Shell-System.directory'
+translate=true
+
+[app-folders/folders/Utilities]
+apps=['org.gnome.Papers.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Loupe.desktop']
+name='X-GNOME-Shell-Utilities.directory'
+translate=true
+
+[app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/Quokka_Everywhere_by_Dilip.png'
+picture-uri-dark='file:///usr/share/backgrounds/Quokka_Everywhere_by_Dilip.png'
+primary-color='#000000'
+secondary-color='#000000'
+
+[break-reminders/eyesight]
+play-sound=true
+
+[break-reminders/movement]
+duration-seconds=uint32 300
+interval-seconds=uint32 1800
+play-sound=true
+
+[input-sources]
+sources=[('xkb', 'us')]
+xkb-options=['caps:escape']
+
+[interface]
+accent-color='teal'
+color-scheme='prefer-dark'
+cursor-theme='Bibata-Modern-Ice'
+gtk-theme='Catppuccin-Dark-Compact'
+icon-theme='WhiteSur'
+
+[notifications]
+application-children=['update-manager', 'org-gnome-ptyxis', 'org-gnome-settings', 'ferdium', 'org-gnome-software', 'google-chrome', 'org-gnome-nautilus', 'com-mitchellh-ghostty']
+
+[notifications/application/com-mitchellh-ghostty]
+application-id='com.mitchellh.ghostty.desktop'
+
+[notifications/application/ferdium]
+application-id='ferdium.desktop'
+
+[notifications/application/google-chrome]
+application-id='google-chrome.desktop'
+
+[notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[notifications/application/org-gnome-ptyxis]
+application-id='org.gnome.Ptyxis.desktop'
+
+[notifications/application/org-gnome-settings]
+application-id='org.gnome.Settings.desktop'
+
+[notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[notifications/application/update-manager]
+application-id='update-manager.desktop'
+
+[peripherals/mouse]
+speed=0.16666666666666674
+
+[peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
+[screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/Quokka_Everywhere_by_Dilip.png'
+primary-color='#000000'
+secondary-color='#000000'
+
+[search-providers]
+sort-order=['org.gnome.Settings.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Nautilus.desktop']
+
+[session]
+idle-delay=uint32 600
+
+[wm/preferences]
+button-layout='close,minimize,maximize:'
+num-workspaces=6
