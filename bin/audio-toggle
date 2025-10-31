@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Toggle between two audio output devices
+# Configure your device names below
+
+DEVICE_1_NAME="A50"
+DEVICE_2_NAME="Family 17h/19h/1ah HD Audio Controller"
+
+# Get current default sink
+CURRENT=$(wpctl status | grep "Sinks:" -A 50 | grep "\*" | head -1 | sed 's/.*\*//' | sed 's/\[.*\]//' | xargs)
+
+# Get device IDs
+DEVICE_1_ID=$(wpctl status | grep "Sinks:" -A 50 | grep "$DEVICE_1_NAME" | grep -oP '^\s*\*?\s*\K\d+')
+DEVICE_2_ID=$(wpctl status | grep "Sinks:" -A 50 | grep "$DEVICE_2_NAME" | grep -oP '^\s*\*?\s*\K\d+')
+
+# Determine which device to switch to
+if echo "$CURRENT" | grep -q "$DEVICE_1_NAME"; then
+    # Currently on device 1, switch to device 2
+    wpctl set-default "$DEVICE_2_ID"
+    notify-send "Audio Output" "Switched to Speakers" -i audio-speakers
+else
+    # Currently on device 2 or other, switch to device 1
+    wpctl set-default "$DEVICE_1_ID"
+    notify-send "Audio Output" "Switched to A50" -i audio-headset
+fi
