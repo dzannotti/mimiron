@@ -19,4 +19,8 @@ if [ -d "$MIMIRON_PATH/config/nvim/lua" ]; then
   cp -r "$MIMIRON_PATH/config/nvim/lua"/* ~/.config/nvim/lua/
 fi
 
-echo "NvChad installed"
+# Install NvChad plugins (run headless install)
+echo "Installing NvChad plugins..."
+nvim --headless "+Lazy! sync" +qa
+
+echo "NvChad installed and configured"
