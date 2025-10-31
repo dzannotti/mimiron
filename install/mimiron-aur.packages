@@ -20,6 +20,10 @@ spotify
 ferdium-bin
 zoom
 walker
+elephant
+elephant-desktopapplications
+elephant-runner
+elephant-websearch
 typora
 
 # Package management (must be installed first)
