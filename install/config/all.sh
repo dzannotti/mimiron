@@ -11,6 +11,7 @@ source "$MIMIRON_INSTALL/config/hardware/fix-f13-amd-audio-input.sh"
 source "$MIMIRON_INSTALL/config/hardware/fix-fkeys.sh"
 
 source "$MIMIRON_INSTALL/config/config.sh"
+source "$MIMIRON_INSTALL/config/disable-gnome-tour.sh"
 source "$MIMIRON_INSTALL/config/git.sh"
 source "$MIMIRON_INSTALL/config/gpg.sh"
 source "$MIMIRON_INSTALL/config/timezones.sh"

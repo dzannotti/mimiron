@@ -1,8 +1,18 @@
 # Mimiron core package list installed via install/packaging/base.sh
 
 # GNOME Desktop
-gnome
-gnome-extra
+gnome-shell
+gnome-control-center
+gnome-session
+gnome-settings-daemon
+gnome-tweaks
+gnome-terminal
+gnome-backgrounds
+gnome-menus
+gnome-shell-extensions
+dconf-editor
+mutter
+xdg-user-dirs-gtk
 gdm
 extension-manager
 yaru-icon-theme
