@@ -3,6 +3,10 @@
 # Install official repository packages via pacman
 echo "Installing official repository packages via pacman..."
 
+# Sync package database first
+echo "Syncing package database..."
+sudo pacman -Sy --noconfirm
+
 # Read package list
 mapfile -t packages < <(grep -v '^#' "$MIMIRON_INSTALL/mimiron-pacman.packages" | grep -v '^$')
 
@@ -19,7 +23,8 @@ failed_packages=()
 # Install packages one by one to avoid silent failures
 for package in "${packages[@]}"; do
     echo -n "Installing $package... "
-    if sudo pacman -S --noconfirm --needed "$package" &>/tmp/mimiron-pacman-$package.log; then
+    # --ask 4 auto-resolves conflicts by choosing the repo version (e.g., pipewire-jack over jack2)
+    if sudo pacman -S --noconfirm --needed --ask 4 "$package" &>/tmp/mimiron-pacman-$package.log; then
         echo "✓"
     else
         echo "✗ FAILED"
