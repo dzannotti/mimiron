@@ -55,6 +55,21 @@ source ~/.local/share/mimiron/install/config/gnome-extensions.sh
 
 This will install all configured GNOME extensions. You can then enable/disable them using Extension Manager.
 
+### Updating Configuration
+
+To update your Mimiron configuration after changes to the repo:
+
+```bash
+# Pull latest changes and re-apply dotfiles/config
+~/.local/share/mimiron/update.sh
+```
+
+This will:
+- Pull latest changes from git
+- Re-copy all dotfiles to ~/.config
+- Update system defaults (zsh, gpg)
+- Preserve your local customizations
+
 ## Philosophy
 
 Inspired by [omarchy](https://github.com/basecamp/omarchy)'s principles but tailored for GNOME users who want:
