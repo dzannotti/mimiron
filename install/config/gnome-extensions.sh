@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Install GNOME extensions using gnome-extensions-cli (gext)
+# Ensure pipx path is available
+export PATH="$HOME/.local/bin:$PATH"
+
 # First install gext if not present
 if ! command -v gext &> /dev/null; then
     pipx install gnome-extensions-cli --system-site-packages
