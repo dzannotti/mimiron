@@ -37,7 +37,7 @@
 }
 
 * {
-  font-family: "MonoLisa", monospace;
+  font-family: "MonoLisa Nerd Font", monospace;
   font-size: 18px;
   color: @text;
 }
