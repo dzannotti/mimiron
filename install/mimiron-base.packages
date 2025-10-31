@@ -98,6 +98,10 @@ xdg-desktop-portal
 xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
 pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+gst-plugin-pipewire
 wireplumber
 bluez
 bluez-utils
@@ -109,6 +113,8 @@ gnome-software
 mesa-utils
 vulkan-tools
 amd-ucode
+linux-headers
+dkms
 
 # Network
 gvfs-mtp
