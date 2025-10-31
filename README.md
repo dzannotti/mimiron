@@ -20,6 +20,19 @@ git clone git@github.com:dzannotti/mimiron.git ~/.local/share/mimiron
 source ~/.local/share/mimiron/boot.sh
 ```
 
+After installation completes, reboot into GNOME.
+
+### Post-Install (First boot into GNOME)
+
+After logging into GNOME for the first time, run:
+
+```bash
+# Install GNOME extensions
+source ~/.local/share/mimiron/install/config/gnome-extensions.sh
+```
+
+This will install all configured GNOME extensions. You can then enable/disable them using Extension Manager.
+
 ## Philosophy
 
 Inspired by [omarchy](https://github.com/basecamp/omarchy)'s principles but tailored for GNOME users who want:
