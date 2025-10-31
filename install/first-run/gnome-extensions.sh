@@ -18,6 +18,7 @@ declare -A EXTENSIONS=(
   ["clipboard-indicator@tudmotu.com"]="779"
   ["user-theme@gnome-shell-extensions.gcampax.github.com"]="19"
   ["trayIconsReloaded@selfmade.pl"]="2890"
+  ["sound-output-device-chooser@kgshank.net"]="906"
 )
 
 # Temporary directory for downloads
