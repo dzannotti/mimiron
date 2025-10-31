@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Install build tools
-sudo pacman -S --needed --noconfirm base-devel git openssh
+# Install build tools and reflector
+sudo pacman -S --needed --noconfirm base-devel git openssh reflector
 
 # Configure pacman
 sudo cp -f "$MIMIRON_PATH/default/pacman/pacman.conf" /etc/pacman.conf
