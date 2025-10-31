@@ -11,9 +11,7 @@ GNOME_VERSION=$(gnome-shell --version | grep -oP '(?<=GNOME Shell )\d+')
 declare -A EXTENSIONS=(
   ["dash-to-dock@micxgx.gmail.com"]="307"
   ["arcmenu@arcmenu.com"]="3628"
-  ["desktop-cube@schneegans.github.com"]="4648"
   ["blur-my-shell@aunetx"]="3193"
-  ["burn-my-windows@schneegans.github.com"]="4679"
   ["Vitals@CoreCoding.com"]="1460"
   ["clipboard-indicator@tudmotu.com"]="779"
   ["user-theme@gnome-shell-extensions.gcampax.github.com"]="19"
