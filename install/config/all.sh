@@ -31,6 +31,7 @@ source "$MIMIRON_INSTALL/config/custom-fonts.sh"
 source "$MIMIRON_INSTALL/config/keybindings.sh"
 source "$MIMIRON_INSTALL/config/portals.sh"
 source "$MIMIRON_INSTALL/config/ddcutil.sh"
+source "$MIMIRON_INSTALL/config/walker.sh"
 source "$MIMIRON_INSTALL/config/gdm.sh"
 # NOTE: gnome-extensions.sh must be run after first boot into GNOME
 # source "$MIMIRON_INSTALL/config/gnome-extensions.sh"
