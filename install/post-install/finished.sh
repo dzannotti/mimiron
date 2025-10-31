@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Ensure terminal state is clean
+printf "\033[?25h"  # Show cursor
+printf "\033[0m"    # Reset colors/formatting
+
 show_logo
 echo
 

@@ -3,6 +3,13 @@
 # Exit immediately if a command exits with a non-zero status
 set -eEo pipefail
 
+# Ensure terminal is cleaned up on exit (even if script fails)
+cleanup_terminal() {
+  printf "\033[?25h"  # Show cursor
+  printf "\033[0m"    # Reset colors/formatting
+}
+trap cleanup_terminal EXIT
+
 # Prompt for sudo password once and cache credentials
 sudo -v
 

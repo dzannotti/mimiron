@@ -54,6 +54,10 @@ stop_log_output() {
     wait $monitor_pid 2>/dev/null || true
     unset monitor_pid
   fi
+
+  # Clear any remaining lines and ensure cursor is visible
+  printf "\033[?25h"  # Show cursor
+  printf "\033[0m"    # Reset colors/formatting
 }
 
 # Start installation logging
