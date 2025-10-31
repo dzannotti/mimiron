@@ -13,6 +13,7 @@ EXTENSIONS=(
   "Vitals@CoreCoding.com"
   "clipboard-indicator@tudmotu.com"
   "user-theme@gnome-shell-extensions.gcampax.github.com"
+  "trayIconsReloaded@selfmade.pl"
 )
 
 # Install each extension
