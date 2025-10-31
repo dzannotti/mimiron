@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Launch or focus an application window
+# Usage: mimiron-launch-or-focus [window-pattern] [launch-command]
+
+if (($# == 0)); then
+  echo "Usage: mimiron-launch-or-focus [window-pattern] [launch-command]"
+  exit 1
+fi
+
+WINDOW_PATTERN="$1"
+LAUNCH_COMMAND="${2:-"$WINDOW_PATTERN"}"
+
+# Try to find and focus the window using wmctrl
+# Search by class name (case-insensitive)
+WINDOW_ID=$(wmctrl -lx | grep -i "$WINDOW_PATTERN" | head -n1 | awk '{print $1}')
+
+if [[ -n $WINDOW_ID ]]; then
+  # Window exists, focus it
+  wmctrl -ia "$WINDOW_ID"
+else
+  # Window doesn't exist, launch the application
+  eval exec "$LAUNCH_COMMAND" &
+fi

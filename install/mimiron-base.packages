@@ -43,11 +43,16 @@ nano
 wl-clipboard
 wtype
 slurp
+grim
+satty
+wayfreeze
 aria2
 gallery-dl
 bc
 p7zip
 plocate
+xdotool
+wmctrl
 
 # File Management
 nautilus

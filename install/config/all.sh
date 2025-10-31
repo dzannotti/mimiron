@@ -24,6 +24,7 @@ source "$MIMIRON_INSTALL/config/fix-powerprofilesctl-shebang.sh"
 source "$MIMIRON_INSTALL/config/localdb.sh"
 source "$MIMIRON_INSTALL/config/gnome-theme.sh"
 source "$MIMIRON_INSTALL/config/keybindings.sh"
+source "$MIMIRON_INSTALL/config/portals.sh"
 source "$MIMIRON_INSTALL/config/gdm.sh"
 # NOTE: gnome-extensions.sh must be run after first boot into GNOME
 # source "$MIMIRON_INSTALL/config/gnome-extensions.sh"
