@@ -9,7 +9,10 @@ echo "Configuring GNOME appearance..."
 # Set GTK theme to Catppuccin Mocha Lavender Dark
 gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Lavender-Dark"
 
-# Set legacy applications theme (GTK2) via gnome-tweaks setting
+# Set shell theme (GNOME Shell appearance)
+gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Mocha-Standard-Lavender-Dark"
+
+# Set legacy applications theme (GTK2/window manager)
 gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Lavender-Dark"
 
 # Set color scheme to prefer dark
