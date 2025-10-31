@@ -7,7 +7,7 @@ source ~/.config/zsh/plugins
 source ~/.config/zsh/aliases
 
 # Initialize mise
-eval "$(~/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
 
 # Initialize zoxide
 eval "$(zoxide init zsh)"
