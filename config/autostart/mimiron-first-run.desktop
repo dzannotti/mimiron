@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Mimiron First Run
-Exec=/home/%u/.local/share/mimiron/bin/mimiron-cmd-first-run
-Hidden=false
-NoDisplay=true
-X-GNOME-Autostart-enabled=true
-Comment=Run Mimiron first-boot configuration

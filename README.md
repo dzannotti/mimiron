@@ -49,11 +49,17 @@ After installation completes, reboot into GNOME.
 After logging into GNOME for the first time, run:
 
 ```bash
-# Install GNOME extensions
-source ~/.local/share/mimiron/install/config/gnome-extensions.sh
+# Run first-boot configuration
+~/.local/share/mimiron/first-run.sh
 ```
 
-This will install all configured GNOME extensions. You can then enable/disable them using Extension Manager.
+This will:
+- Configure DNS resolver
+- Set up firewall
+- Install and enable GNOME extensions
+- Show welcome notifications
+
+You may need to restart GNOME Shell (Alt+F2, type 'r') or log out/in for all changes to take effect.
 
 ### Updating Configuration
 
