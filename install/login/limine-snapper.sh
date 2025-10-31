@@ -8,13 +8,13 @@ if [[ -f /boot/EFI/limine/limine.conf ]] || [[ -f /boot/EFI/BOOT/limine.conf ]] 
   # Only install limine packages if we have limine
   if ! sudo pacman -S --noconfirm --needed limine-snapper-sync limine-mkinitcpio-hook 2>/dev/null; then
     echo "Warning: Could not install limine packages, skipping bootloader configuration"
-    exit 0
+    return 0
   fi
 
   # Verify packages installed correctly
   if ! command -v limine-update &>/dev/null; then
     echo "Warning: limine-update not available, skipping bootloader configuration"
-    exit 0
+    return 0
   fi
 
   sudo tee /etc/mkinitcpio.conf.d/mimiron_hooks.conf <<EOF >/dev/null
@@ -38,7 +38,7 @@ EOF
   # Double-check and exit gracefully if we don't have a config file
   if [[ ! -f $limine_config ]]; then
     echo "Warning: Limine config not found at $limine_config, skipping configuration"
-    exit 0
+    return 0
   fi
 
   CMDLINE=$(grep "^[[:space:]]*cmdline:" "$limine_config" | head -1 | sed 's/^[[:space:]]*cmdline:[[:space:]]*//')
