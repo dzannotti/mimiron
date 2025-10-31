@@ -1,4 +1,4 @@
-# Mimiron core package list installed via install/packaging/base.sh
+# Mimiron official repository packages (installed via pacman)
 
 # GNOME Desktop
 gnome-shell
@@ -14,21 +14,16 @@ dconf-editor
 mutter
 xdg-user-dirs-gtk
 gdm
-gdm-settings
-yaru-icon-theme
-whitesur-icon-theme
-bibata-cursor-theme-bin
 gtk-engine-murrine
 gnome-themes-extra
 sassc
 
 # Development Tools
 mise
-nvim
+neovim
 lazygit
 github-cli
 clang
-visual-studio-code-bin
 tmux
 python-pipx
 
@@ -61,11 +56,9 @@ wtype
 slurp
 grim
 satty
-wayfreeze
 aria2
-gallery-dl
 bc
-p7zip
+7zip
 plocate
 xdotool
 wmctrl
@@ -87,8 +80,7 @@ noto-fonts-extra
 ttf-cascadia-mono-nerd
 ttf-jetbrains-mono-nerd
 ttf-meslo-nerd
-ttf-inter-nerd
-ttf-fira-code-nerd
+ttf-firacode-nerd
 
 # System
 snapper
@@ -108,7 +100,6 @@ openssh
 man-db
 man-pages
 reflector
-wmctrl
 alsa-utils
 dosfstools
 ntfs-3g
@@ -129,7 +120,6 @@ gst-plugin-pipewire
 wireplumber
 bluez
 bluez-utils
-bluez-plugins
 ufw
 gufw
 fwupd
@@ -160,16 +150,7 @@ gst-plugins-ugly
 gst-libav
 
 # Applications
-google-chrome
-spotify
-ferdium-bin
 bitwarden
-zoom
 discord
 gamemode
-walker
-typora
 obsidian
-
-# Package management
-yay

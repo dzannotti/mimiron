@@ -1,0 +1,28 @@
+# Mimiron AUR packages (installed via yay)
+
+# GNOME Desktop & Themes
+gdm-settings
+yaru-icon-theme
+whitesur-icon-theme
+bibata-cursor-theme-bin
+
+# Development Tools
+visual-studio-code-bin
+
+# CLI Utilities
+wayfreeze
+gallery-dl
+
+# Fonts
+nerd-fonts-inter
+
+# Applications
+google-chrome
+spotify
+ferdium-bin
+zoom
+walker
+typora
+
+# Package management (must be installed first)
+yay
