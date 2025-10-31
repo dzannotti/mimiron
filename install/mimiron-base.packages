@@ -5,6 +5,7 @@ gnome
 gnome-extra
 gdm
 extension-manager
+yaru-icon-theme
 
 # Development Tools
 mise
@@ -69,6 +70,9 @@ ttf-inter-nerd
 ttf-fira-code-nerd
 
 # System
+snapper
+limine-snapper-sync
+limine-mkinitcpio-hook
 avahi
 nss-mdns
 cups
@@ -144,6 +148,8 @@ discord
 steam
 gamemode
 walker
+typora
+obsidian
 
 # Package management
 yay
