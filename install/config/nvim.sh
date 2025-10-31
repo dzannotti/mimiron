@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Install LazyVim with custom overrides
+# Install NvChad with custom overrides
 
-echo "Installing LazyVim..."
+echo "Installing NvChad..."
 
-# Clone LazyVim starter
+# Clone NvChad starter
 if [ ! -d ~/.config/nvim ]; then
-  git clone https://github.com/LazyVim/starter ~/.config/nvim
+  git clone https://github.com/NvChad/starter ~/.config/nvim
   # Remove .git folder so it doesn't conflict with our own config tracking
   rm -rf ~/.config/nvim/.git
 else
@@ -19,4 +19,4 @@ if [ -d "$MIMIRON_PATH/config/nvim/lua" ]; then
   cp -r "$MIMIRON_PATH/config/nvim/lua"/* ~/.config/nvim/lua/
 fi
 
-echo "LazyVim installed"
+echo "NvChad installed"
