@@ -14,6 +14,7 @@ dconf-editor
 mutter
 xdg-user-dirs-gtk
 gdm
+gdm-settings
 yaru-icon-theme
 whitesur-icon-theme
 bibata-cursor-theme-bin
