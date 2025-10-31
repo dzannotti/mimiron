@@ -1,7 +1,16 @@
 #!/bin/bash
+source "$MIMIRON_INSTALL/config/zsh.sh"
+
+source "$MIMIRON_INSTALL/config/hardware/bluetooth.sh"
+source "$MIMIRON_INSTALL/config/hardware/network.sh"
+source "$MIMIRON_INSTALL/config/hardware/nvidia.sh"
+source "$MIMIRON_INSTALL/config/hardware/printer.sh"
+source "$MIMIRON_INSTALL/config/hardware/set-wireless-regdom.sh"
+source "$MIMIRON_INSTALL/config/hardware/usb-autosuspend.sh"
+source "$MIMIRON_INSTALL/config/hardware/fix-f13-amd-audio-input.sh"
+source "$MIMIRON_INSTALL/config/hardware/fix-fkeys.sh"
 
 source "$MIMIRON_INSTALL/config/config.sh"
-source "$MIMIRON_INSTALL/config/zsh.sh"
 source "$MIMIRON_INSTALL/config/git.sh"
 source "$MIMIRON_INSTALL/config/gpg.sh"
 source "$MIMIRON_INSTALL/config/timezones.sh"
@@ -15,4 +24,3 @@ source "$MIMIRON_INSTALL/config/localdb.sh"
 source "$MIMIRON_INSTALL/config/gdm.sh"
 # NOTE: gnome-extensions.sh must be run after first boot into GNOME
 # source "$MIMIRON_INSTALL/config/gnome-extensions.sh"
-source "$MIMIRON_INSTALL/config/hardware/all.sh"

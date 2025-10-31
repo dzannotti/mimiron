@@ -1,5 +1,4 @@
 # Mimiron zshrc - sources config from ~/.config/zsh/
-
 export PATH=$PATH:~/.local/bin
 
 # Source zsh configuration
