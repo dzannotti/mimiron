@@ -14,7 +14,7 @@ github-cli
 clang
 visual-studio-code-bin
 tmux
-pipx
+python-pipx
 
 # Shell & Terminal
 ghostty
