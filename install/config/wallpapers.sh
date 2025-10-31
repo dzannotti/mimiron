@@ -75,11 +75,10 @@ Persistent=true
 WantedBy=timers.target
 TIMER_EOF
 
-  # Enable the timer
-  systemctl --user enable mimiron-wallpaper-rotate.timer
-  systemctl --user start mimiron-wallpaper-rotate.timer
-  
-  echo "Wallpapers installed and rotation enabled (every 3 hours)"
+  # Note: The timer will be enabled on first login via first-run script
+  # Can't enable it here since there's no user session during install
+
+  echo "Wallpapers installed and rotation configured (will enable on first login)"
 else
   echo "No wallpapers found in default/backgrounds"
 fi
