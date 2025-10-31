@@ -14,7 +14,6 @@ dconf-editor
 mutter
 xdg-user-dirs-gtk
 gdm
-gtk-engine-murrine
 gnome-themes-extra
 sassc
 
