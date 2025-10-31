@@ -12,5 +12,6 @@ source "$MIMIRON_INSTALL/config/mimetypes.sh"
 source "$MIMIRON_INSTALL/config/mise.sh"
 source "$MIMIRON_INSTALL/config/localdb.sh"
 source "$MIMIRON_INSTALL/config/gdm.sh"
-source "$MIMIRON_INSTALL/config/gnome-extensions.sh"
+# NOTE: gnome-extensions.sh must be run after first boot into GNOME
+# source "$MIMIRON_INSTALL/config/gnome-extensions.sh"
 source "$MIMIRON_INSTALL/config/hardware/all.sh"
