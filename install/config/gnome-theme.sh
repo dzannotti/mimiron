@@ -2,25 +2,9 @@
 
 # Configure GNOME theme, icons, cursor, and appearance
 
-echo "Installing and configuring GNOME theme..."
-
-# Install Catppuccin GTK Theme
-TEMP_DIR=$(mktemp -d)
-trap "rm -rf $TEMP_DIR" EXIT
-
-cd "$TEMP_DIR"
-
-# Clone the theme repository
-git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git
-cd Catppuccin-GTK-Theme
-
-# Install with: compact, dark only
-# -s compact = compact size
-# -c dark = dark variant only
-# -l = link GTK4 to config
-./install.sh -s compact -c dark -l
-
 echo "Configuring GNOME appearance..."
+
+# Note: catppuccin-gtk-theme-mocha is installed via AUR packages
 
 # Set GTK theme to Catppuccin Dark Compact
 gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Dark-Compact"
