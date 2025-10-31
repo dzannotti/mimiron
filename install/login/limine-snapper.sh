@@ -1,10 +1,15 @@
 # Configure Limine bootloader with Snapper snapshot integration
 # This allows booting into previous system snapshots from the boot menu
 
-if command -v limine &>/dev/null; then
-  echo "Configuring Limine bootloader with Snapper integration..."
+# Check if limine bootloader is actually installed and configured
+if [[ -f /boot/EFI/limine/limine.conf ]] || [[ -f /boot/EFI/BOOT/limine.conf ]] || [[ -f /boot/limine/limine.conf ]]; then
+  echo "Limine bootloader detected, configuring Snapper integration..."
 
-  sudo pacman -S --noconfirm --needed limine-snapper-sync limine-mkinitcpio-hook
+  # Only install limine packages if we have limine
+  sudo pacman -S --noconfirm --needed limine-snapper-sync limine-mkinitcpio-hook 2>/dev/null || {
+    echo "Warning: Could not install limine packages, skipping bootloader configuration"
+    exit 0
+  }
 
   sudo tee /etc/mkinitcpio.conf.d/mimiron_hooks.conf <<EOF >/dev/null
 HOOKS=(base udev keyboard autodetect microcode modconf kms keymap consolefont block encrypt filesystems fsck btrfs-overlayfs)
@@ -125,5 +130,6 @@ EOF
 
   echo "Limine bootloader configured with Snapper integration"
 else
-  echo "Limine not found, skipping bootloader configuration"
+  echo "Limine bootloader not detected, skipping snapshot configuration"
+  echo "(This is normal if you're using GRUB or systemd-boot)"
 fi

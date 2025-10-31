@@ -76,8 +76,6 @@ ttf-fira-code-nerd
 
 # System
 snapper
-limine-snapper-sync
-limine-mkinitcpio-hook
 avahi
 nss-mdns
 cups
