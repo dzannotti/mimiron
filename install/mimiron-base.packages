@@ -4,16 +4,17 @@
 gnome
 gnome-extra
 gdm
+extension-manager
 
 # Development Tools
 mise
 nvim
 lazygit
-lazydocker
 github-cli
 clang
 visual-studio-code-bin
 tmux
+pipx
 
 # Shell & Terminal
 ghostty
@@ -142,6 +143,7 @@ zoom
 discord
 steam
 gamemode
+walker
 
 # Package management
 yay
