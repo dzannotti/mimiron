@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Disable PBP/PIP mode on Dell ultrawide monitor (return to single mode)
+monitor.sh single_mode

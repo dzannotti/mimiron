@@ -139,6 +139,8 @@ vulkan-tools
 amd-ucode
 linux-headers
 dkms
+ddcutil
+i2c-tools
 
 # Network
 gvfs-mtp
