@@ -5,5 +5,5 @@ notify-send "🎉 Welcome to Mimiron!" \
   -u normal -t 10000
 
 notify-send "💡 Tip: GNOME Extensions" \
-  "Open Extension Manager to browse and install GNOME extensions." \
+  "All your GNOME extensions have been installed and configured.\nRestart GNOME Shell (Alt+F2, type 'r') if needed." \
   -u normal -t 10000

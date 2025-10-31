@@ -53,4 +53,5 @@ for uuid in "${!EXTENSIONS[@]}"; do
   gnome-extensions enable "$uuid" 2>/dev/null || true
 done
 
-echo "GNOME extensions configured. You may need to restart GNOME Shell (Alt+F2, type 'r')"
+echo "GNOME extensions configured."
+echo "You may need to restart GNOME Shell (Alt+F2, type 'r') or log out and back in."
