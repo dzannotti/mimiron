@@ -1,0 +1,17 @@
+# Mimiron zshrc - sources config from ~/.config/zsh/
+
+export PATH=$PATH:~/.local/bin
+
+# Source zsh configuration
+source ~/.config/zsh/zshrc
+source ~/.config/zsh/plugins
+source ~/.config/zsh/aliases
+
+# Initialize mise
+eval "$(~/.local/bin/mise activate zsh)"
+
+# Initialize zoxide
+eval "$(zoxide init zsh)"
+
+# Initialize starship prompt
+eval "$(starship init zsh)"

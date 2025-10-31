@@ -21,7 +21,6 @@ ghostty
 starship
 zsh
 zoxide
-oh-my-zsh-git
 
 # CLI Utilities
 bat

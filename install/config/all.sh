@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source "$MIMIRON_INSTALL/config/config.sh"
+source "$MIMIRON_INSTALL/config/zsh.sh"
 source "$MIMIRON_INSTALL/config/git.sh"
 source "$MIMIRON_INSTALL/config/gpg.sh"
 source "$MIMIRON_INSTALL/config/timezones.sh"
