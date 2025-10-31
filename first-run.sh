@@ -30,11 +30,6 @@ echo "→ Applying GNOME settings..."
 bash "$MIMIRON_PATH/install/first-run/gnome-settings.sh"
 
 echo
-echo "→ Enabling wallpaper rotation..."
-systemctl --user enable mimiron-wallpaper-rotate.timer
-systemctl --user start mimiron-wallpaper-rotate.timer
-
-echo
 echo "→ Showing welcome message..."
 bash "$MIMIRON_PATH/install/first-run/welcome.sh"
 
