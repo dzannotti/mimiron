@@ -7,14 +7,36 @@ Opinionated Arch Linux configuration focused on GNOME desktop and modern develop
 ### Prerequisites
 Fresh Arch Linux installation with:
 - Base packages (default)
-- `networkmanager` and `nmtui`
+- User account created (non-root)
+- `networkmanager` installed
 - Working internet connection
+
+### Connect to Internet (if WiFi)
+
+After fresh Arch install, you'll be in a TTY terminal. Connect to WiFi:
+
+```bash
+# Start NetworkManager service
+sudo systemctl start NetworkManager
+
+# Connect to WiFi using nmtui (Text UI)
+nmtui
+
+# Or use nmcli (command line)
+nmcli device wifi list
+nmcli device wifi connect "YOUR_SSID" password "YOUR_PASSWORD"
+
+# Verify connection
+ping -c 3 archlinux.org
+```
+
+**Ethernet:** Should work automatically if NetworkManager is running.
 
 ### Quick Start
 
 ```bash
 # Clone to expected location
-git clone git@github.com:dzannotti/mimiron.git ~/.local/share/mimiron
+git clone https://github.com/dzannotti/mimiron.git ~/.local/share/mimiron
 
 # Run bootstrap
 source ~/.local/share/mimiron/boot.sh
