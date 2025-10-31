@@ -18,6 +18,9 @@ extension-manager
 yaru-icon-theme
 whitesur-icon-theme
 bibata-cursor-theme-bin
+gtk-engine-murrine
+gnome-themes-extra
+sassc
 
 # Development Tools
 mise
