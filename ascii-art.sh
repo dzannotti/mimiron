@@ -24,3 +24,6 @@ IFS=$'\n' read -rd '' -a lines <<<"$ascii_art"
 for i in "${!lines[@]}"; do
 	echo -e "${colors[i]}${lines[i]}"
 done
+
+# Reset color to default
+echo -e '\033[0m'
