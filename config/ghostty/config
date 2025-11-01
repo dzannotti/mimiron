@@ -13,7 +13,7 @@ resize-overlay = never
 gtk-toolbar-style = flat
 theme = catppuccin.conf
 scrollback-limit = 2147483648
-background-opacity = 0.89
+background-opacity = 0.93
 background-blur = true
 #window-titlebar-background=#1e1e2e
 #window-titlebar-foreground=#cdd6f4
@@ -29,3 +29,4 @@ shell-integration-features = no-cursor,ssh-env
 # Keyboard bindings
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
+keybind = delete=text:\x1b[3~
