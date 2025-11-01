@@ -7,12 +7,10 @@ ascii_art='
       █       █                 '
 
 colors=(
-	'\033[38;5;203m' # Red (Catppuccin Maroon/Red)
-	'\033[38;5;216m' # Peach (Orange)
+	'\033[38;5;210m' # Rosewater/Pink
+	'\033[38;5;222m' # Peach
 	'\033[38;5;229m' # Yellow
-	'\033[38;5;115m' # Green
-	'\033[38;5;117m' # Blue (Sky)
-	'\033[38;5;183m' # Mauve (Purple)
+	'\033[38;5;158m' # Green
 )
 
 # Split the ASCII art into lines (compatible with both bash and zsh)
