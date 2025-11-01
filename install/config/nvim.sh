@@ -20,7 +20,7 @@ if [ -d "$MIMIRON_PATH/config/nvim/lua" ]; then
 fi
 
 # Install NvChad plugins (run headless install)
-echo "Installing NvChad plugins..."
-nvim --headless "+Lazy! sync" +qa
+echo "Installing NvChad plugins (this may take a minute)..."
+nvim --headless -c "autocmd User LazyDone quitall" -c "Lazy! sync"
 
 echo "NvChad installed and configured"
