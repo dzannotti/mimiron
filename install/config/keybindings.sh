@@ -18,7 +18,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings \
 
 # Custom0: Ctrl+Alt+Space - Walker launcher
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom0/ name "Walker"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom0/ command "walker"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom0/ command "$HOME/.local/bin/mimiron-launch-walker"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom0/ binding "<Primary><Alt>space"
 
 # Custom1: Ctrl+Alt+H - Obsidian (launch or focus)
