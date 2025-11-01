@@ -9,6 +9,11 @@ echo "Installing extension packages via yay..."
 mapfile -t packages < "$HOME/.local/share/mimiron/install/first-run-packages.txt"
 yay -S --noconfirm --needed "${packages[@]}"
 
+echo "Restarting GNOME Shell to detect new extensions..."
+# Kill gnome-shell so it restarts and picks up new extensions
+killall -3 gnome-shell 2>/dev/null || true
+sleep 3
+
 # Disable version check so incompatible extensions can still be enabled
 gsettings set org.gnome.shell disable-extension-version-validation true
 
