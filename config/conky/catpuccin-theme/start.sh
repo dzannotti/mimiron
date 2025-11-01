@@ -1,6 +1,6 @@
 #!/bin/bash
 
-killall conky
-sleep 2s
+killall conky 2>/dev/null
+sleep 1
 
-conky -c $HOME/.config/conky/catppuccin-theme/config.conf &> /dev/null &
+conky -c $HOME/.config/conky/catpuccin-theme/config.conf &
