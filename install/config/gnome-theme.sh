@@ -4,28 +4,16 @@
 
 echo "Configuring GNOME appearance..."
 
-# Install Catppuccin GTK Theme from source
-echo "→ Installing Catppuccin GTK Theme from source..."
-TEMP_DIR=$(mktemp -d)
-cd "$TEMP_DIR"
-git clone --depth 1 https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git
-cd Catppuccin-GTK-Theme/themes
-./install.sh -t flamingo -s compact -l --tweaks macchiato macos outline
-cd ~
-rm -rf "$TEMP_DIR"
-echo "✓ Catppuccin theme installed"
-echo
+# Note: catppuccin-gtk-theme-git is installed via AUR packages
 
-# Set GTK theme to Catppuccin Flamingo Compact with Macchiato colorscheme
-# Theme name format: Catppuccin-<Accent>-<Size>-<Colorscheme>-<Border>-<Buttons>
-# B = Bordered, MB = macOS Buttons
-gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Flamingo-Compact-Macchiato-B-MB"
+# Set GTK theme to Catppuccin Dark Compact
+gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Dark-Compact"
 
 # Set shell theme (GNOME Shell appearance)
-gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Flamingo-Compact-Macchiato-B-MB"
+gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Dark-Compact"
 
 # Set legacy applications theme (GTK2/window manager)
-gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Flamingo-Compact-Macchiato-B-MB"
+gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Dark-Compact"
 
 # Set color scheme to prefer dark
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
