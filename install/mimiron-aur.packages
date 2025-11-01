@@ -6,6 +6,10 @@ catppuccin-gtk-theme-git
 yaru-icon-theme
 whitesur-icon-theme
 bibata-cursor-theme-bin
+gnome-shell-extension-dash-to-dock
+gnome-shell-extension-blur-my-shell
+gnome-shell-extension-arcmenu
+gnome-shell-extension-vitals
 
 # Development Tools
 visual-studio-code-bin

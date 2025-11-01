@@ -9,13 +9,9 @@ GNOME_VERSION=$(gnome-shell --version | grep -oP '(?<=GNOME Shell )\d+')
 echo "Detected GNOME Shell version: $GNOME_VERSION"
 
 # Map of extension UUID to extensions.gnome.org ID
+# Note: dash-to-dock, blur-my-shell, arcmenu, vitals are installed via AUR packages
 declare -A EXTENSIONS=(
-  ["dash-to-dock@micxgx.gmail.com"]="307"
-  ["arcmenu@arcmenu.com"]="3628"
-  ["blur-my-shell@aunetx"]="3193"
-  ["Vitals@CoreCoding.com"]="1460"
   ["clipboard-indicator@tudmotu.com"]="779"
-  ["user-theme@gnome-shell-extensions.gcampax.github.com"]="19"
   ["trayIconsReloaded@selfmade.pl"]="2890"
 )
 
