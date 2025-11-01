@@ -1,11 +1,11 @@
 {
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
-  "editor.fontFamily": "MonoLisa Nerd Font Mono",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.fontLigatures": true,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "terminal.integrated.fontFamily": "MonoLisa Nerd Font Mono",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.codeLens": false,
   "editor.snippetSuggestions": "top",
   "editor.suggestSelection": "first",
