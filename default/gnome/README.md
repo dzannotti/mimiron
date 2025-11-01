@@ -2,19 +2,24 @@
 
 This directory contains configuration files for styling the GDM (GNOME Display Manager) login screen.
 
+## Current Configuration
+
+The GDM configuration focuses on what's reliably achievable without complex theme hacking:
+
+**Configured settings:**
+- **Color Scheme:** Dark mode with purple accent (Catppuccin Mocha colors)
+- **Background:** shaded.png (from default/backgrounds)
+- **Primary Color:** #1e1e2e (Catppuccin Mocha base)
+
+**Not configured (requires additional work):**
+- GTK Theme (requires system-wide installation and GDM CSS customization)
+- Logo (Catppuccin logo is too large at 1544x1544px)
+- Icons/Cursor (GDM doesn't always respect these in user themes)
+
 ## Files
 
 ### `gdm-dconf`
 Contains the dconf settings for GDM's appearance. This file is deployed to `/etc/dconf/db/gdm.d/01-mimiron` and compiled into GDM's dconf database.
-
-**Configured settings:**
-- **GTK Theme:** Catppuccin-Lavender-Dark
-- **Icon Theme:** WhiteSur
-- **Cursor Theme:** Bibata-Modern-Ice
-- **Background:** shaded.png (from default/backgrounds)
-- **Logo:** Catppuccin logo
-- **Colors:** Catppuccin Mocha palette (#1e1e2e base)
-- **Accent:** Purple (Lavender)
 
 ### `gdm-profile`
 Defines the dconf profile for GDM, specifying where GDM should look for its settings database. This is deployed to `/etc/dconf/profile/gdm`.

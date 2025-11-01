@@ -2,18 +2,8 @@
 # This file is compiled and placed in /etc/dconf/db/gdm.d/
 
 [org/gnome/desktop/interface]
-gtk-theme='Catppuccin-Dark-Compact'
-icon-theme='WhiteSur'
-cursor-theme='Bibata-Modern-Ice'
-font-name='Ubuntu Sans 11'
-monospace-font-name='CaskaydiaMono Nerd Font 10'
 color-scheme='prefer-dark'
 accent-color='purple'
-font-antialiasing='rgba'
-font-hinting='slight'
-
-[org/gnome/desktop/wm/preferences]
-theme='Catppuccin-Dark-Compact'
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/mimiron/shaded.png'
@@ -26,7 +16,3 @@ secondary-color='#1e1e2e'
 picture-uri='file:///usr/share/backgrounds/mimiron/shaded.png'
 primary-color='#1e1e2e'
 secondary-color='#1e1e2e'
-
-[org/gnome/login-screen]
-logo='/usr/share/pixmaps/catppuccin-logo.png'
-disable-user-list=false
