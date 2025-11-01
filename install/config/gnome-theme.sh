@@ -4,7 +4,18 @@
 
 echo "Configuring GNOME appearance..."
 
-# Note: catppuccin-gtk-theme-git is installed via AUR packages
+# Install Catppuccin GTK theme from source
+echo "Installing Catppuccin GTK theme..."
+TEMP_DIR=$(mktemp -d)
+git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git "$TEMP_DIR"
+cd "$TEMP_DIR"
+
+# Install with: compact, outline, macos, adwaita options
+./themes/install.sh -c -o -m -a
+
+# Clean up
+rm -rf "$TEMP_DIR"
+echo "  ✓ Catppuccin GTK theme installed"
 
 # Set GTK theme to Catppuccin Dark Compact
 gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Dark-Compact"
