@@ -1,6 +1,5 @@
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-blur-my-shell
-gnome-shell-extension-arcmenu
 gnome-shell-extension-vitals
 gnome-shell-extension-tray-icons-reloaded
 gnome-shell-extension-clipboard-indicator

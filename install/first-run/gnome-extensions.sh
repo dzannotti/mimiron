@@ -69,7 +69,6 @@ echo "Enabling all installed extensions..."
 # Enable all extensions that were installed via packages
 PACKAGE_EXTENSIONS=(
   "dash-to-dock@micxgx.gmail.com"
-  "arcmenu@arcmenu.com"
   "blur-my-shell@aunetx"
   "Vitals@CoreCoding.com"
   "user-theme@gnome-shell-extensions.gcampax.github.com"
