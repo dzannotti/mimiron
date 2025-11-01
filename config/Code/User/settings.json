@@ -1,5 +1,6 @@
 {
   "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
   "editor.fontFamily": "MonoLisa Nerd Font Mono",
   "editor.fontLigatures": true,
   "editor.formatOnSave": true,
