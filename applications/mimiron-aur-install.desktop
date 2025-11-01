@@ -4,7 +4,7 @@ Type=Application
 Name=Install Package (AUR)
 Comment=Install a package from Arch User Repository
 Icon=system-software-install
-Exec=ghostty -e bash -c 'mimiron-show-logo && gum input --placeholder "AUR package name..." | xargs -I {} mimiron-pkg-aur-install {}; mimiron-show-done'
+Exec=ghostty -e bash -c 'mimiron-show-logo && PKG=$(gum input --placeholder "AUR package name...") && [ -n "$PKG" ] && mimiron-pkg-aur-install "$PKG"; mimiron-show-done'
 Terminal=false
 Categories=System;PackageManager;
 Keywords=install;package;aur;yay;mimiron;
