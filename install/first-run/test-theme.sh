@@ -4,6 +4,13 @@
 
 echo "Testing Catppuccin GTK Theme installation..."
 
+# Remove old AUR theme package if installed
+if pacman -Qi catppuccin-gtk-theme-git &>/dev/null; then
+    echo "→ Removing old catppuccin-gtk-theme-git AUR package..."
+    yay -R --noconfirm catppuccin-gtk-theme-git
+    echo "✓ Old package removed"
+fi
+
 # Install Catppuccin GTK Theme from source
 echo "→ Installing Catppuccin GTK Theme from source..."
 TEMP_DIR=$(mktemp -d)
