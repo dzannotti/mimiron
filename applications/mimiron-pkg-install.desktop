@@ -4,7 +4,7 @@ Type=Application
 Name=Install Package (pacman)
 Comment=Install a package from official repositories
 Icon=system-software-install
-Exec=ghostty -e bash -c 'mimiron-show-logo && PKG=$(gum input --placeholder "Package name...") && [ -n "$PKG" ] && mimiron-pkg-install "$PKG"; echo; echo "✓ Done!"; echo; read -n 1 -s -r -p "Press any key to close..." </dev/tty; echo'
+Exec=ghostty -e bash -c 'mimiron-show-logo && PKG=$(gum input --placeholder "Package name...") && [ -n "$PKG" ] && mimiron-pkg-install "$PKG"; echo; echo "✓ Done! (press Ctrl+D or type exit to close)"; echo; exec bash -i'
 Terminal=false
 Categories=System;PackageManager;
 Keywords=install;package;pacman;mimiron;
