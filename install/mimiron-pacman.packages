@@ -30,6 +30,9 @@ python-pipx
 ghostty
 starship
 zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-completions
 zoxide
 
 # CLI Utilities
