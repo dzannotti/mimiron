@@ -18,11 +18,8 @@ echo "Detected GNOME Shell version: $GNOME_VERSION"
 echo "Extension version validation disabled - will load all extensions"
 
 # Map of extension UUID to extensions.gnome.org ID
-# Note: dash-to-dock, blur-my-shell, arcmenu, vitals are installed via AUR packages
-declare -A EXTENSIONS=(
-  ["clipboard-indicator@tudmotu.com"]="779"
-  ["trayIconsReloaded@selfmade.pl"]="2890"
-)
+# Note: All extensions are now installed via AUR packages
+declare -A EXTENSIONS=()
 
 # Temporary directory for downloads
 TEMP_DIR=$(mktemp -d)
@@ -76,6 +73,8 @@ PACKAGE_EXTENSIONS=(
   "blur-my-shell@aunetx"
   "Vitals@CoreCoding.com"
   "user-theme@gnome-shell-extensions.gcampax.github.com"
+  "trayIconsReloaded@selfmade.pl"
+  "clipboard-indicator@tudmotu.com"
 )
 
 for uuid in "${PACKAGE_EXTENSIONS[@]}"; do
