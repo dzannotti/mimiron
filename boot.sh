@@ -4,7 +4,7 @@ clear
 export MIMIRON_PATH="$HOME/.local/share/mimiron"
 export MIMIRON_INSTALL="$MIMIRON_PATH/install"
 
-source "$MIMIRON_INSTALL/ascii-art.sh"
+source "$MIMIRON_PATH/ascii-art.sh"
 
 # Check internet connectivity
 if ! ping -c 1 -W 2 archlinux.org &> /dev/null; then
@@ -23,4 +23,4 @@ echo "Internet connection verified!"
 echo
 
 echo -e "\nInstallation starting..."
-source "$MIMIRON_INSTALL/install.sh"
+source "$MIMIRON_PATH/install.sh"

@@ -22,6 +22,5 @@ IFS=$'\n' read -rd '' -a lines <<<"$ascii_art"
 
 # Print each line with the corresponding color
 for i in "${!lines[@]}"; do
-	color_index=$((i % ${#colors[@]}))
-	echo -e "${colors[color_index]}${lines[i]}"
+	echo -e "${colors[i]}${lines[i]}"
 done
