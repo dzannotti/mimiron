@@ -17,16 +17,16 @@ echo "→ Installing GDM background..."
 sudo mkdir -p /usr/share/backgrounds/mimiron
 sudo cp "$HOME/.local/share/mimiron/default/backgrounds/shaded.png" /usr/share/backgrounds/mimiron/
 
-# Copy and resize Catppuccin logo for GDM (needs to be small, ~96px)
+# Copy and resize Catppuccin logo for GDM (256x256 for good visibility)
 echo "→ Installing GDM logo..."
 if command -v convert &> /dev/null; then
-  # Resize to 96x96 using ImageMagick
-  sudo convert "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" -resize 96x96 /usr/share/pixmaps/mimiron-logo.png
-  echo "  Resized Catppuccin logo to 96x96"
+  # Resize to 256x256 using ImageMagick
+  sudo convert "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" -resize 256x256 /usr/share/pixmaps/mimiron-logo.png
+  echo "  Resized Catppuccin logo to 256x256"
 elif command -v magick &> /dev/null; then
   # Try new ImageMagick command name
-  sudo magick "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" -resize 96x96 /usr/share/pixmaps/mimiron-logo.png
-  echo "  Resized Catppuccin logo to 96x96"
+  sudo magick "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" -resize 256x256 /usr/share/pixmaps/mimiron-logo.png
+  echo "  Resized Catppuccin logo to 256x256"
 else
   # Fallback: just copy and hope GDM scales it (it won't, but we try)
   sudo cp "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" /usr/share/pixmaps/mimiron-logo.png
@@ -49,7 +49,7 @@ sudo chmod 700 /var/lib/gdm/.config/dconf
 echo "✓ GDM login screen configured"
 echo "  Color scheme: Dark with purple accent (Catppuccin Mocha colors)"
 echo "  Background: shaded.png"
-echo "  Logo: Catppuccin (resized to 96x96)"
+echo "  Logo: Catppuccin (resized to 256x256)"
 echo ""
 echo "Note: Using default GDM theme with Catppuccin styling"
 echo "      Changes will take effect after reboot or restarting GDM"
