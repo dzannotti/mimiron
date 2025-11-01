@@ -5,8 +5,8 @@
 if [[ -f /boot/EFI/limine/limine.conf ]] || [[ -f /boot/EFI/BOOT/limine.conf ]] || [[ -f /boot/limine/limine.conf ]]; then
   echo "Limine bootloader detected, configuring Snapper integration..."
 
-  # Only install limine packages if we have limine
-  if ! sudo pacman -S --noconfirm --needed limine-snapper-sync limine-mkinitcpio-hook 2>/dev/null; then
+  # Only install limine packages if we have limine (these are AUR packages, use yay)
+  if ! yay -S --noconfirm --needed limine-snapper-sync limine-mkinitcpio-hook 2>/dev/null; then
     echo "Warning: Could not install limine packages, skipping bootloader configuration"
     return 0
   fi

@@ -153,6 +153,9 @@ dkms
 ddcutil
 i2c-tools
 colord
+pciutils
+efibootmgr
+mkinitcpio
 
 # Network & File Systems
 gvfs
