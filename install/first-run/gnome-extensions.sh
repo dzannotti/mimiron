@@ -4,6 +4,11 @@
 
 echo "Installing GNOME extensions..."
 
+# Install extension packages from AUR
+echo "Installing extension packages via yay..."
+mapfile -t packages < "$HOME/.local/share/mimiron/install/first-run-packages.txt"
+yay -S --noconfirm --needed "${packages[@]}"
+
 # Disable version check so incompatible extensions can still be enabled
 gsettings set org.gnome.shell disable-extension-version-validation true
 
