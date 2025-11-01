@@ -37,7 +37,7 @@
 }
 
 * {
-  font-family: "MonoLisa Nerd Font", monospace;
+  font-family: 'Inter', monospace;
   font-size: 18px;
   color: @text;
 }

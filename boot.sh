@@ -1,13 +1,10 @@
 #!/bin/bash
-
-ansi_art='
-▄▄▄▄  ▄ ▄▄▄▄  ▄  ▄▄▄ ▄▄▄  ▄▄▄▄
-█ █ █ ▄ █ █ █ ▄ █   █   █ █   █
-█   █ █ █   █ █ █   ▀▄▄▄▀ █   █
-      █       █                 '
-
 clear
-echo -e "\n$ansi_art\n"
+
+export MIMIRON_PATH="$HOME/.local/share/mimiron"
+export MIMIRON_INSTALL="$MIMIRON_PATH/install"
+
+source "$MIMIRON_INSTALL/ascii-art.sh"
 
 # Check internet connectivity
 if ! ping -c 1 -W 2 archlinux.org &> /dev/null; then
@@ -25,7 +22,5 @@ fi
 echo "Internet connection verified!"
 echo
 
-sudo pacman -Syu --noconfirm --needed git
-
 echo -e "\nInstallation starting..."
-source ~/.local/share/mimiron/install.sh
+source "$MIMIRON_INSTALL/install.sh"
