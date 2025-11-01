@@ -1,10 +1,5 @@
 #!/bin/bash
 
-cat << 'LOGO'
-▄▄▄▄  ▄ ▄▄▄▄  ▄  ▄▄▄ ▄▄▄  ▄▄▄▄
-█ █ █ ▄ █ █ █ ▄ █   █   █ █   █
-█   █ █ █   █ █ █   ▀▄▄▄▀ █   █
-      █       █                 
-LOGO
-
-echo ""
+clear
+source "$MIMIRON_PATH/ascii-art.sh"
+echo
