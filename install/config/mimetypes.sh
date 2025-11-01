@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Install Mimiron application shortcuts to walker
+mkdir -p ~/.local/share/applications
+cp "$MIMIRON_PATH/applications"/*.desktop ~/.local/share/applications/ 2>/dev/null || true
+
 # Update desktop database
 update-desktop-database ~/.local/share/applications 2>/dev/null || true
 

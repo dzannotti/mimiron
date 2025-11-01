@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Update Mimiron
+Comment=Pull latest changes and update Mimiron configuration
+Icon=system-software-update
+Exec=ghostty -e bash -c 'mimiron-show-logo && mimiron-update && mimiron-show-done'
+Terminal=false
+Categories=System;Settings;
+Keywords=update;mimiron;config;
