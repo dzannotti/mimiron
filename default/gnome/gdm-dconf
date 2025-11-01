@@ -1,8 +1,8 @@
-# GDM dconf settings for Catppuccin Lavender Dark theme
+# GDM dconf settings for Catppuccin Dark Compact theme
 # This file is compiled and placed in /etc/dconf/db/gdm.d/
 
 [org/gnome/desktop/interface]
-gtk-theme='Catppuccin-Lavender-Dark'
+gtk-theme='Catppuccin-Dark-Compact'
 icon-theme='WhiteSur'
 cursor-theme='Bibata-Modern-Ice'
 font-name='Ubuntu Sans 11'
@@ -13,7 +13,7 @@ font-antialiasing='rgba'
 font-hinting='slight'
 
 [org/gnome/desktop/wm/preferences]
-theme='Catppuccin-Lavender-Dark'
+theme='Catppuccin-Dark-Compact'
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/mimiron/shaded.png'

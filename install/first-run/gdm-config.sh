@@ -2,6 +2,11 @@
 
 echo "Configuring GDM login screen..."
 
+# Create dconf directories if they don't exist
+echo "→ Creating dconf directories..."
+sudo mkdir -p /etc/dconf/db/gdm.d
+sudo mkdir -p /etc/dconf/profile
+
 # Copy GDM dconf configuration
 echo "→ Installing GDM dconf settings..."
 sudo cp "$HOME/.local/share/mimiron/default/gnome/gdm-dconf" /etc/dconf/db/gdm.d/01-mimiron
@@ -28,8 +33,8 @@ sudo chown -R gdm:gdm /var/lib/gdm/.config
 sudo chmod 700 /var/lib/gdm/.cache/dconf
 sudo chmod 700 /var/lib/gdm/.config/dconf
 
-echo "✓ GDM login screen configured with Catppuccin Lavender Dark theme"
-echo "  Theme: Catppuccin-Lavender-Dark"
+echo "✓ GDM login screen configured with Catppuccin Dark Compact theme"
+echo "  Theme: Catppuccin-Dark-Compact"
 echo "  Icons: WhiteSur"
 echo "  Cursor: Bibata-Modern-Ice"
 echo "  Background: shaded.png"

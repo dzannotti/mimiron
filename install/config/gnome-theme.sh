@@ -6,14 +6,14 @@ echo "Configuring GNOME appearance..."
 
 # Note: catppuccin-gtk-theme-git is installed via AUR packages
 
-# Set GTK theme to Catppuccin Lavender Dark
-gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Lavender-Dark"
+# Set GTK theme to Catppuccin Dark Compact
+gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Dark-Compact"
 
 # Set shell theme (GNOME Shell appearance)
-gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Lavender-Dark"
+gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Dark-Compact"
 
 # Set legacy applications theme (GTK2/window manager)
-gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Lavender-Dark"
+gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Dark-Compact"
 
 # Set color scheme to prefer dark
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
