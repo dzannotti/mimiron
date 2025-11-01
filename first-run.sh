@@ -26,6 +26,10 @@ echo "→ Installing GNOME extensions..."
 bash "$MIMIRON_PATH/install/first-run/gnome-extensions.sh"
 
 echo
+echo "→ Configuring GDM login screen..."
+bash "$MIMIRON_PATH/install/first-run/gdm-config.sh"
+
+echo
 echo "→ Showing welcome message..."
 bash "$MIMIRON_PATH/install/first-run/welcome.sh"
 
