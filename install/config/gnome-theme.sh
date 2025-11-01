@@ -11,20 +11,20 @@ git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git "$TEMP_DI
 cd "$TEMP_DIR"
 
 # Install with: compact, outline, macos, adwaita options
-./themes/install.sh -c -o -m -a
+./themes/install.sh --libadwaita --tweaks macos outline --size compact --theme blue flamingo teal peach
 
 # Clean up
 rm -rf "$TEMP_DIR"
 echo "  ✓ Catppuccin GTK theme installed"
 
-# Set GTK theme to Catppuccin Dark Compact
-gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Dark-Compact"
+# Set GTK theme to Catppuccin Flamingo Dark Compact
+gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Flamingo-Dark-Compact"
 
 # Set shell theme (GNOME Shell appearance)
-gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Dark-Compact"
+gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Flamingo-Dark-Compact"
 
 # Set legacy applications theme (GTK2/window manager)
-gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Dark-Compact"
+gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Flamingo-Dark-Compact"
 
 # Set color scheme to prefer dark
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
