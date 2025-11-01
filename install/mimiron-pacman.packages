@@ -103,6 +103,7 @@ reflector
 alsa-utils
 dosfstools
 ntfs-3g
+lm_sensors
 libnotify
 pavucontrol
 lxappearance
