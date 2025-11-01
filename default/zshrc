@@ -6,9 +6,6 @@ source ~/.config/zsh/zshrc
 source ~/.config/zsh/plugins
 source ~/.config/zsh/aliases
 
-# Initialize mise
-eval "$(mise activate zsh)"
-
 # Initialize zoxide
 eval "$(zoxide init zsh)"
 

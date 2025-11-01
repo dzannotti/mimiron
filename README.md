@@ -95,10 +95,11 @@ Perfect for ultrawide monitor users who prefer traditional desktop paradigms.
 ### Development Tools
 - **VSCode** - Primary editor with extensions and settings
 - **Neovim** - Terminal editor with full configuration
-- **mise** - Runtime version manager (replaces asdf/nvm/gvm)
-  - Node.js
+- **Development runtimes** - Installed via native packages
+  - Node.js & npm & pnpm
   - Bun
   - Go
+  - Rust & Cargo
 
 ### Configuration
 - Shell configuration and aliases

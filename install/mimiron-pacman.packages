@@ -18,13 +18,17 @@ gnome-themes-extra
 sassc
 
 # Development Tools
-mise
 neovim
 lazygit
 github-cli
 clang
 tmux
 python-pipx
+rust
+go
+nodejs
+npm
+pnpm
 
 # Shell & Terminal
 ghostty
