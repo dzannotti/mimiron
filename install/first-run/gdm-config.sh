@@ -2,9 +2,11 @@
 
 echo "Configuring GDM login screen..."
 
-# Create dconf directory for gdm user with proper permissions
+# Create dconf directories for gdm user with proper permissions
 sudo mkdir -p /var/lib/gdm/.cache/dconf
-sudo chown gdm:gdm /var/lib/gdm/.cache/dconf
+sudo mkdir -p /var/lib/gdm/.config/dconf
+sudo chown -R gdm:gdm /var/lib/gdm/.cache
+sudo chown -R gdm:gdm /var/lib/gdm/.config
 
 # Set GTK theme for GDM to Catppuccin
 sudo -u gdm dbus-launch gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Lavender-Dark"
