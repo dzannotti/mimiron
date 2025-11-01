@@ -14,5 +14,5 @@ if ! pgrep -f "walker --gapplication-service" > /dev/null; then
   sleep 0.5
 fi
 
-# Launch walker UI
-exec walker "$@"
+# Launch walker UI with fixed size to prevent jumping
+exec walker --width 644 --maxheight 300 --minheight 300 "$@"
