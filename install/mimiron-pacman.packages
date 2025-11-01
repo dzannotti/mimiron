@@ -70,13 +70,23 @@ plocate
 xdotool
 wmctrl
 
-# File Management
+# File Management & Utilities
 nautilus
 gnome-disk-utility
+gnome-calculator
+gnome-system-monitor
+gnome-characters
+gnome-logs
+gnome-weather
+gnome-clocks
+gnome-font-viewer
+gnome-snapshot
+baobab
 sushi
 evince
 file-roller
 gthumb
+p7zip
 unrar
 
 # Fonts
@@ -84,6 +94,9 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+ttf-liberation
+ttf-dejavu
+adobe-source-sans-fonts
 ttf-cascadia-mono-nerd
 ttf-jetbrains-mono-nerd
 ttf-meslo-nerd
@@ -139,11 +152,18 @@ linux-headers
 dkms
 ddcutil
 i2c-tools
+colord
 
-# Network
+# Network & File Systems
+gvfs
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
+gvfs-gphoto2
+gvfs-afc
+gvfs-goa
+gvfs-google
+exfatprogs
 inetutils
 
 # Media

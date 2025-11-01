@@ -64,17 +64,3 @@ To customize the GDM theme:
 2. Run the installation via `first-run.sh` or manually copy and compile
 3. Restart GDM
 
-### Available Catppuccin Theme Variants
-
-The `catppuccin-gtk-theme-git` package installs multiple variants. You can change the theme by modifying the `gtk-theme` value in `gdm-dconf`:
-
-- `Catppuccin-Lavender-Dark` (current)
-- `Catppuccin-Blue-Dark`
-- `Catppuccin-Pink-Dark`
-- `Catppuccin-Mauve-Dark`
-- `Catppuccin-Red-Dark`
-- `Catppuccin-Green-Dark`
-- `Catppuccin-Yellow-Dark`
-- And more...
-
-All variants support `-Light` and `-Dark` suffixes, plus optional `-Compact` for smaller UI elements.
