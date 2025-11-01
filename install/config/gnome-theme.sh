@@ -4,7 +4,17 @@
 
 echo "Configuring GNOME appearance..."
 
-# Note: Catppuccin theme is installed from source during packaging
+# Install Catppuccin GTK Theme from source
+echo "→ Installing Catppuccin GTK Theme from source..."
+TEMP_DIR=$(mktemp -d)
+cd "$TEMP_DIR"
+git clone --depth 1 https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git
+cd Catppuccin-GTK-Theme/themes
+./install.sh -t flamingo -s compact -l --tweaks macchiato macos outline
+cd ~
+rm -rf "$TEMP_DIR"
+echo "✓ Catppuccin theme installed"
+echo
 
 # Set GTK theme to Catppuccin Flamingo Compact with Macchiato colorscheme
 # Theme name format: Catppuccin-<Accent>-<Size>-<Colorscheme>-<Border>-<Buttons>
