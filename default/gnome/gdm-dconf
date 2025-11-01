@@ -16,3 +16,7 @@ secondary-color='#1e1e2e'
 picture-uri='file:///usr/share/backgrounds/mimiron/shaded.png'
 primary-color='#1e1e2e'
 secondary-color='#1e1e2e'
+
+[org/gnome/login-screen]
+logo='/usr/share/pixmaps/mimiron-logo.png'
+disable-user-list=false

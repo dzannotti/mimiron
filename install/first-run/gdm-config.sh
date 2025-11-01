@@ -17,8 +17,22 @@ echo "→ Installing GDM background..."
 sudo mkdir -p /usr/share/backgrounds/mimiron
 sudo cp "$HOME/.local/share/mimiron/default/backgrounds/shaded.png" /usr/share/backgrounds/mimiron/
 
-# Note: GDM logo removed - the Catppuccin logo is too large (1544x1544)
-# and causes display issues. Logo setting commented out in gdm-dconf.
+# Copy and resize Catppuccin logo for GDM (needs to be small, ~96px)
+echo "→ Installing GDM logo..."
+if command -v convert &> /dev/null; then
+  # Resize to 96x96 using ImageMagick
+  sudo convert "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" -resize 96x96 /usr/share/pixmaps/mimiron-logo.png
+  echo "  Resized Catppuccin logo to 96x96"
+elif command -v magick &> /dev/null; then
+  # Try new ImageMagick command name
+  sudo magick "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" -resize 96x96 /usr/share/pixmaps/mimiron-logo.png
+  echo "  Resized Catppuccin logo to 96x96"
+else
+  # Fallback: just copy and hope GDM scales it (it won't, but we try)
+  sudo cp "$HOME/.local/share/mimiron/default/logos/catppuccin-logo.png" /usr/share/pixmaps/mimiron-logo.png
+  echo "  Warning: ImageMagick not found, logo may be too large"
+  echo "  Install imagemagick package and re-run for proper sizing"
+fi
 
 # Compile dconf database for GDM
 echo "→ Compiling dconf database..."
@@ -35,8 +49,7 @@ sudo chmod 700 /var/lib/gdm/.config/dconf
 echo "✓ GDM login screen configured"
 echo "  Color scheme: Dark with purple accent (Catppuccin Mocha colors)"
 echo "  Background: shaded.png"
+echo "  Logo: Catppuccin (resized to 96x96)"
 echo ""
-echo "Note: Custom GTK themes require additional GDM CSS configuration"
-echo "      Currently using default GDM theme with Catppuccin colors/background"
-echo ""
-echo "Changes will take effect after reboot or restarting GDM"
+echo "Note: Using default GDM theme with Catppuccin styling"
+echo "      Changes will take effect after reboot or restarting GDM"
