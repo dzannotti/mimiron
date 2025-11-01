@@ -4,9 +4,13 @@
 
 echo "Installing GNOME extensions..."
 
+# Disable version check so incompatible extensions can still be enabled
+gsettings set org.gnome.shell disable-extension-version-validation true
+
 # Get GNOME Shell version
 GNOME_VERSION=$(gnome-shell --version | grep -oP '(?<=GNOME Shell )\d+')
 echo "Detected GNOME Shell version: $GNOME_VERSION"
+echo "Extension version validation disabled - will load all extensions"
 
 # Map of extension UUID to extensions.gnome.org ID
 # Note: dash-to-dock, blur-my-shell, arcmenu, vitals are installed via AUR packages
@@ -58,5 +62,29 @@ for uuid in "${!EXTENSIONS[@]}"; do
 done
 
 echo ""
+echo "Enabling all installed extensions..."
+
+# Enable all extensions that were installed via packages
+PACKAGE_EXTENSIONS=(
+  "dash-to-dock@micxgx.gmail.com"
+  "arcmenu@arcmenu.com"
+  "blur-my-shell@aunetx"
+  "Vitals@CoreCoding.com"
+  "user-theme@gnome-shell-extensions.gcampax.github.com"
+)
+
+for uuid in "${PACKAGE_EXTENSIONS[@]}"; do
+  if gnome-extensions list 2>/dev/null | grep -q "$uuid"; then
+    if gnome-extensions enable "$uuid" 2>&1; then
+      echo "  ✓ Enabled $uuid"
+    else
+      echo "  ✗ Failed to enable $uuid"
+    fi
+  else
+    echo "  ⚠ $uuid not found (might not be installed yet)"
+  fi
+done
+
+echo ""
 echo "GNOME extensions installation complete."
-echo "You may need to restart GNOME Shell (Alt+F2, type 'r') or log out and back in."
+echo "Restart GNOME Shell (Alt+F2, type 'r') or log out and back in for changes to take effect."
