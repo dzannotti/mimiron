@@ -59,14 +59,12 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
   # Clean up potential double spaces
   sudo sed -i -E 's/  +/ /g' "$MKINITCPIO_CONF"
 
-  echo "Starting mkinitcpio -P with verbose output..."
-  sudo mkinitcpio -P -v
-  echo "mkinitcpio completed with exit code: $?"
+  sudo mkinitcpio -P
 
   # GNOME/Wayland NVIDIA environment variables
   # GDM uses /usr/share/gdm/env.d/ for environment variables
   sudo mkdir -p /usr/share/gdm/env.d/
-  cat | sudo tee /usr/share/gdm/env.d/nvidia.env >/dev/null <<'EOF'
+  cat <<'EOF' | sudo tee /usr/share/gdm/env.d/nvidia.env >/dev/null
 # NVIDIA environment variables for Wayland
 NVD_BACKEND=direct
 LIBVA_DRIVER_NAME=nvidia
@@ -74,9 +72,4 @@ __GLX_VENDOR_LIBRARY_NAME=nvidia
 EOF
 
   echo "NVIDIA drivers installed and configured for GNOME/Wayland"
-  echo "nvidia.sh script completing successfully"
-else
-  echo "No NVIDIA GPU detected, skipping nvidia.sh"
 fi
-
-echo "nvidia.sh finished"
