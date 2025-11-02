@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Enabling cups service..."
 sudo systemctl enable cups.service
 
 # Disable multicast dns in resolved. Avahi will provide this for better network printer discovery
