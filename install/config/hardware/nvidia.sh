@@ -34,7 +34,6 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
     "${KERNEL_HEADERS}"
     "${NVIDIA_DRIVER_PACKAGE}"
     "nvidia-utils"
-    "lib32-nvidia-utils"
     "egl-wayland"
     "libva-nvidia-driver" # For VA-API hardware acceleration
   )
@@ -60,7 +59,9 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
   # Clean up potential double spaces
   sudo sed -i -E 's/  +/ /g' "$MKINITCPIO_CONF"
 
-  sudo mkinitcpio -P
+  set -o pipefail
+  sudo mkinitcpio -P 2>&1 | cat
+  set +o pipefail
 
   # GNOME/Wayland NVIDIA environment variables
   # GDM uses /usr/share/gdm/env.d/ for environment variables
