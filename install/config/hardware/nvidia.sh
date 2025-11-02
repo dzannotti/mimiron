@@ -59,9 +59,9 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
   # Clean up potential double spaces
   sudo sed -i -E 's/  +/ /g' "$MKINITCPIO_CONF"
 
-  set -o pipefail
-  sudo mkinitcpio -P 2>&1 | cat
-  set +o pipefail
+  echo "Starting mkinitcpio -P with verbose output..."
+  sudo mkinitcpio -P -v
+  echo "mkinitcpio completed with exit code: $?"
 
   # GNOME/Wayland NVIDIA environment variables
   # GDM uses /usr/share/gdm/env.d/ for environment variables
