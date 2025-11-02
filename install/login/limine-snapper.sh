@@ -71,6 +71,23 @@ EOF
     sudo sed -i '/^ENABLE_UKI=/d; /^ENABLE_LIMINE_FALLBACK=/d' /etc/default/limine
   fi
 
+  # Clean up any orphaned limine-update temp directories before proceeding
+  sudo find /boot -maxdepth 1 -type d -name '[0-9a-f]*' -exec rm -rf {} + 2>/dev/null || true
+
+  # Check available space in /boot (need at least 300MB for UKI generation)
+  BOOT_AVAIL_MB=$(df -BM /boot | awk 'NR==2 {print $4}' | sed 's/M//')
+  if [[ $BOOT_AVAIL_MB -lt 300 ]]; then
+    echo "Error: Not enough space in /boot partition ($BOOT_AVAIL_MB MB available, need 300MB)"
+    echo "Current /boot usage:"
+    du -sh /boot/* 2>/dev/null | sort -h
+    return 1
+  fi
+
+  # Back up existing limine.conf before overwriting
+  if [[ -f /boot/limine.conf ]]; then
+    sudo cp /boot/limine.conf /boot/limine.conf.backup
+  fi
+
   # We overwrite the whole thing knowing the limine-update will add the entries for us
   sudo tee /boot/limine.conf <<EOF >/dev/null
 ### Read more at config document: https://github.com/limine-bootloader/limine/blob/trunk/CONFIG.md
@@ -125,7 +142,22 @@ EOF
 
   echo "mkinitcpio hooks re-enabled"
 
-  sudo limine-update
+  echo "Running limine-update (this may take a minute)..."
+  if ! sudo limine-update; then
+    echo "Error: limine-update failed"
+    # Restore backup if limine-update failed
+    if [[ -f /boot/limine.conf.backup ]]; then
+      echo "Restoring previous limine.conf..."
+      sudo cp /boot/limine.conf.backup /boot/limine.conf
+    fi
+    return 1
+  fi
+
+  # Verify boot entries were actually created
+  if ! grep -q "^:Mimiron" /boot/limine.conf 2>/dev/null; then
+    echo "Warning: limine-update succeeded but no boot entries found in limine.conf"
+    echo "Check /boot/limine.conf manually"
+  fi
 
   if [[ -n $EFI ]] && efibootmgr &>/dev/null; then
     # Remove the archinstall-created Limine entry
