@@ -3,4 +3,4 @@
 killall conky 2>/dev/null
 sleep 1
 
-conky -c $HOME/.config/conky/catpuccin-theme/config.conf &
+conky -c $HOME/.config/conky/catppuccin-theme/config.conf &
