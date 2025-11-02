@@ -74,4 +74,9 @@ __GLX_VENDOR_LIBRARY_NAME=nvidia
 EOF
 
   echo "NVIDIA drivers installed and configured for GNOME/Wayland"
+  echo "nvidia.sh script completing successfully"
+else
+  echo "No NVIDIA GPU detected, skipping nvidia.sh"
 fi
+
+echo "nvidia.sh finished"
