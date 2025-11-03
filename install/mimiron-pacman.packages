@@ -101,6 +101,7 @@ ttf-cascadia-mono-nerd
 ttf-jetbrains-mono-nerd
 ttf-meslo-nerd
 ttf-firacode-nerd
+nerd-fonts-inter
 
 # System
 pacman-contrib

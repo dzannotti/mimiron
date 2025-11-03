@@ -5,7 +5,7 @@ border_radius = 12           # rounded corners
 close_on_focus_out = true    # close walker when it loses focus
 
 [ui]
-font = "MonoLisa Nerd Font Mono 11"
+font = "Inter Nerd Font Propo 11"
 
 [ui.border]
 color = "#cba6f7"  # catppuccin mocha mauve/purple
