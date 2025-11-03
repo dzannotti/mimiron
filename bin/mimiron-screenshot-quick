@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Quick screenshot tool - macOS-like Ctrl+Shift+4
-# Uses Shutter for area selection with annotation support
-# Shutter has full annotation tools (arrows, text, shapes, blur, etc.)
-
-# Use Shutter's select mode (-s for select area)
-# Opens editor automatically after selection
-shutter -s -e

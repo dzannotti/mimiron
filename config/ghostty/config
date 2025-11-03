@@ -19,6 +19,10 @@ background-blur = true
 cursor-style = "block"
 cursor-style-blink = false
 
+# Clipboard/Paste settings
+clipboard-paste-protection = false
+clipboard-paste-bracketed-safe = false
+
 # Keyboard bindings
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
