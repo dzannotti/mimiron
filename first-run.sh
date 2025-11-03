@@ -39,7 +39,7 @@ bash "$MIMIRON_PATH/install/first-run/welcome.sh"
 
 echo
 echo "╔═══════════════════════════════════════════════════════════════════╗"
-echo "║                   FIRST-RUN COMPLETE                              ║"
+echo "║                   FIRST-RUN COMPLETE                          ║"
 echo "╚═══════════════════════════════════════════════════════════════════╝"
 echo
 echo "You may need to:"

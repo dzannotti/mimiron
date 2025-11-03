@@ -4,4 +4,4 @@
 # Usage: mimiron-launch-terminal <command>
 
 cmd="$*"
-exec setsid ghostty --class=Mimiron --title=Mimiron -e bash -c "mimiron-show-logo; $cmd; mimiron-show-done"
+exec setsid ghostty --window-width=80 --window-height=40 --class=Mimiron --title=Mimiron -e bash -c "mimiron-show-logo; $cmd; mimiron-show-done"

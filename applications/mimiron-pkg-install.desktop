@@ -4,7 +4,7 @@ Type=Application
 Name=Install Package (pacman)
 Comment=Install a package from official repositories
 Icon=gnome-robots
-Exec=ghostty --title="Install Package" -e bash -c 'export PATH="$HOME/.local/share/mimiron/bin:$PATH"; mimiron-show-logo; mimiron-pkg-install'
+Exec=ghostty --window-width=80 --window-height=40 --title="Install Package" -e bash -c 'export PATH="$HOME/.local/share/mimiron/bin:$PATH"; mimiron-show-logo; mimiron-pkg-install'
 Terminal=false
 Categories=System;PackageManager;
 Keywords=install;package;pacman;mimiron;
