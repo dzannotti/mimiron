@@ -24,8 +24,9 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${C
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom1/ binding "<Primary><Alt>h"
 
 # Custom2: Ctrl+Alt+J - Chrome (launch or focus)
+# Force X11 backend so wmctrl can see and focus Chrome windows
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom2/ name "Chrome"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom2/ command "$HOME/.local/share/mimiron/bin/mimiron-launch-or-focus chrome google-chrome-stable"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom2/ command "$HOME/.local/share/mimiron/bin/mimiron-launch-or-focus chrome 'google-chrome-stable --ozone-platform=x11'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom2/ binding "<Primary><Alt>j"
 
 # Custom3: Ctrl+Alt+K - VSCode (launch or focus)
