@@ -5,6 +5,7 @@
 # ============================================================================
 
 set -euo pipefail
+trap 'echo ""; echo -e "\033[0;31mSomething went wrong during the update!\n\nPlease review the output above carefully, correct the error, and retry the update.\033[0m"; read -n 1 -s' ERR
 trap 'echo "[!] Script aborted by user."; exit 1' INT TERM
 
 # -------------------------------------
