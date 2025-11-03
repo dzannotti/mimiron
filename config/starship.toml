@@ -121,17 +121,17 @@ format = '[](bg2)[ $symbol $branch ]($style)[ ](bg2)'
 
 [git_status]
 disabled = false
-# ahead = " $count "
-# behind = " $count "
-# deleted = "﫧 $count "
-# diverged = " $count "
-# stashed = " $count "
-# modified = " $count "
-# staged = " $count "
-# renamed = " $count "
-# untracked = " $count "
+ahead = " $count "
+behind = " $count "
+deleted = "﫧 $count "
+diverged = " $count "
+stashed = " $count "
+modified = " $count "
+staged = " $count "
+renamed = " $count "
+untracked = " $count "
 style = "bg:bg2 fg:text"
-format = '[($all_status$ahead_behind)]($style)'
+format = '[](bg2)[($all_status$ahead_behind)]($style)[ ](bg2)'
 
 [conda]
 symbol = ""
