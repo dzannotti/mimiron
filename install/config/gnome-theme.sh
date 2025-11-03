@@ -13,11 +13,11 @@ gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 # Set accent color to purple (lavender-like)
 gsettings set org.gnome.desktop.interface accent-color "purple"
 
-# Set WhiteSur icon theme
-gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur'
+# Set Qogir-dark icon theme
+gsettings set org.gnome.desktop.interface icon-theme 'Qogir-dark'
 
-# Set Bibata Ice cursor theme
-gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'
+# Set Qogir cursor theme
+gsettings set org.gnome.desktop.interface cursor-theme 'Qogir'
 
 # Set fonts
 gsettings set org.gnome.desktop.interface font-name 'Ubuntu Sans 11'

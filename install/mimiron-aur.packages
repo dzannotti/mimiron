@@ -2,9 +2,8 @@
 
 # GNOME Desktop & Themes
 gdm-settings
-yaru-icon-theme
-whitesur-icon-theme
-bibata-cursor-theme-bin
+qogir-icon-theme
+qogir-cursor-theme
 
 # Development Tools
 visual-studio-code-bin

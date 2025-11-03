@@ -71,6 +71,7 @@ PACKAGE_EXTENSIONS=(
   "dash-to-dock@micxgx.gmail.com"
   "blur-my-shell@aunetx"
   "Vitals@CoreCoding.com"
+  "user-theme@gnome-shell-extensions.gcampax.github.com"
   "trayIconsReloaded@selfmade.pl"
   "clipboard-indicator@tudmotu.com"
 )
