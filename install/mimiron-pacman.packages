@@ -74,8 +74,11 @@ nautilus
 gnome-disk-utility
 gnome-calculator
 gnome-system-monitor
+gnome-characters
+gnome-logs
 gnome-weather
 gnome-clocks
+gnome-font-viewer
 gnome-usage
 baobab
 sushi
