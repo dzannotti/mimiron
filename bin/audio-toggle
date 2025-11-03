@@ -1,9 +1,9 @@
-#\!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # Toggle between two audio output devices
 
-# Get all sink lines
-SINKS=$(wpctl status | awk "/Audio/,/Video/" | grep -E "^\s*\*?\s*[0-9]+\.")
+# Get only sink lines (not streams)
+SINKS=$(wpctl status | awk "/Sinks:/,/Sources:/" | grep -E "^\s*\*?\s*[0-9]+\." | grep -v "output_")
 
 # Get device IDs
 DEVICE_1_ID=$(echo "$SINKS" | grep "A50" | sed -E "s/^[^0-9]*([0-9]+).*/\1/")
