@@ -23,3 +23,6 @@ cursor-style-blink = false
 # Keyboard bindings
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
+
+# Fix Delete key (ensure it sends proper escape sequence)
+keybind = delete=text:\x1b[3~
