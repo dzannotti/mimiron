@@ -3,9 +3,6 @@
 
 echo "Configuring custom keyboard shortcuts..."
 
-# Remap CapsLock to Escape
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
-
 # GNOME allows custom keybindings via org.gnome.settings-daemon.plugins.media-keys.custom-keybindings
 # We need to create custom keybinding entries
 
