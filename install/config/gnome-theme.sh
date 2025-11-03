@@ -1,35 +1,16 @@
 #!/bin/bash
 
-# Configure GNOME theme, icons, cursor, and appearance
+# Configure GNOME appearance with Adwaita and custom icons/cursor
 
 echo "Configuring GNOME appearance..."
 
-# Install Catppuccin GTK theme from source
-echo "Installing Catppuccin GTK theme..."
-TEMP_DIR=$(mktemp -d)
-git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git "$TEMP_DIR"
-cd "$TEMP_DIR"
-
-# Install with: compact, outline, macos, adwaita options
-./themes/install.sh --libadwaita --tweaks macos outline --size compact --theme blue lavender teal peach
-
-# Clean up
-rm -rf "$TEMP_DIR"
-echo "  ✓ Catppuccin GTK theme installed"
-
-# Set GTK theme to Catppuccin Lavender Dark Compact
-gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Lavender-Dark-Compact"
-
-# Set shell theme (GNOME Shell appearance)
-gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Lavender-Dark-Compact"
-
-# Set legacy applications theme (GTK2/window manager)
-gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Lavender-Dark-Compact"
+# Use default Adwaita theme (no custom GTK theme)
+# Adwaita is maintained by GNOME and never breaks on updates
 
 # Set color scheme to prefer dark
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 
-# Set accent color to lavender (purple)
+# Set accent color to purple (lavender-like)
 gsettings set org.gnome.desktop.interface accent-color "purple"
 
 # Set WhiteSur icon theme
@@ -45,4 +26,4 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Sans Mono 
 gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
 gsettings set org.gnome.desktop.interface font-hinting 'slight'
 
-echo "GNOME theme, icons, and cursor configured"
+echo "GNOME appearance configured with Adwaita + purple accent"
