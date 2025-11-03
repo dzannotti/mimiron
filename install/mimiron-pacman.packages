@@ -103,6 +103,7 @@ ttf-meslo-nerd
 ttf-firacode-nerd
 
 # System
+pacman-contrib
 snapper
 avahi
 nss-mdns
