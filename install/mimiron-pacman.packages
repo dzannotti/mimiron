@@ -7,10 +7,14 @@ gnome-session
 gnome-settings-daemon
 gnome-tweaks
 gnome-terminal
+gnome-backgrounds
+gnome-menus
+gnome-shell-extensions
 dconf-editor
 xdg-user-dirs-gtk
 gdm
 gnome-themes-extra
+sassc
 
 # Development Tools
 neovim
@@ -73,6 +77,7 @@ gnome-system-monitor
 gnome-weather
 gnome-clocks
 gnome-usage
+baobab
 sushi
 evince
 file-roller
