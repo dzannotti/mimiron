@@ -106,8 +106,8 @@ show_milliseconds = true
 show_notifications = true
 min_time = 100
 min_time_to_notify = 45000
+style = "bg:bg5 fg:text"
 format = "[ ](bg5)[  in $duration ]($style)[](bg5)"
-style = "fg:lavender"
 
 [character]
 disabled = false
