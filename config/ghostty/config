@@ -5,6 +5,8 @@ font-thicken = true
 
 # Window
 window-theme = ghostty
+window-width = 180
+window-height = 70
 confirm-close-surface=false
 resize-overlay = never
 gtk-toolbar-style = flat
