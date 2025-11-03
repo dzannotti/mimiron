@@ -116,7 +116,7 @@ fi
 
 step "UPGRADING SYSTEM PACKAGES"
 echo "This will update all official and AUR packages."
-$AUR -Syu
+$AUR -Syu --noconfirm
 echo "✓ System packages updated"
 echo "NOTE: After upgrade, run: sudo pacdiff — to handle .pacnew files."
 
