@@ -9,17 +9,9 @@ setopt hist_find_no_dups
 # begone annoying ~ in terminal paste
 unset zle_bracketed_paste
 
-# Removed CapsLock -> Escape mapping
-# Users can add manually if needed
-
 # Load zsh plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Fix key bindings for Delete, Home, End
-bindkey "\e[3~" delete-char       # Delete
-bindkey "\e[H"  beginning-of-line # Home
-bindkey "\e[F"  end-of-line       # End
 
 # fzf integration for better Ctrl+R history search
 source /usr/share/fzf/key-bindings.zsh
