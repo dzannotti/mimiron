@@ -7,14 +7,16 @@ cp "$MIMIRON_PATH/applications"/*.desktop ~/.local/share/applications/ 2>/dev/nu
 # Update desktop database
 update-desktop-database ~/.local/share/applications 2>/dev/null || true
 
-# Open all images with gthumb (GNOME image viewer)
-xdg-mime default org.gnome.gThumb.desktop image/png
-xdg-mime default org.gnome.gThumb.desktop image/jpeg
-xdg-mime default org.gnome.gThumb.desktop image/gif
-xdg-mime default org.gnome.gThumb.desktop image/webp
-xdg-mime default org.gnome.gThumb.desktop image/bmp
-xdg-mime default org.gnome.gThumb.desktop image/tiff
-xdg-mime default org.gnome.gThumb.desktop image/svg+xml
+# Open all images with loupe (GNOME image viewer)
+xdg-mime default org.gnome.Loupe.desktop image/png
+xdg-mime default org.gnome.Loupe.desktop image/jpeg
+xdg-mime default org.gnome.Loupe.desktop image/jpg
+xdg-mime default org.gnome.Loupe.desktop image/gif
+xdg-mime default org.gnome.Loupe.desktop image/webp
+xdg-mime default org.gnome.Loupe.desktop image/bmp
+xdg-mime default org.gnome.Loupe.desktop image/tiff
+xdg-mime default org.gnome.Loupe.desktop image/svg+xml
+xdg-mime default org.gnome.Loupe.desktop image/avif
 
 # Open PDFs with Evince
 xdg-mime default org.gnome.Evince.desktop application/pdf
@@ -68,6 +70,6 @@ xdg-mime default mpv.desktop audio/aac
 xdg-mime default mpv.desktop audio/opus
 xdg-mime default mpv.desktop audio/x-opus+ogg
 
-# HEIF/HEIC images (iPhone photos) with gthumb
-xdg-mime default org.gnome.gThumb.desktop image/heif
-xdg-mime default org.gnome.gThumb.desktop image/heic
+# HEIF/HEIC images (iPhone photos) with loupe
+xdg-mime default org.gnome.Loupe.desktop image/heif
+xdg-mime default org.gnome.Loupe.desktop image/heic

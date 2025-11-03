@@ -7,15 +7,10 @@ gnome-session
 gnome-settings-daemon
 gnome-tweaks
 gnome-terminal
-gnome-backgrounds
-gnome-menus
-gnome-shell-extensions
 dconf-editor
-mutter
 xdg-user-dirs-gtk
 gdm
 gnome-themes-extra
-sassc
 
 # Development Tools
 neovim
@@ -75,16 +70,13 @@ nautilus
 gnome-disk-utility
 gnome-calculator
 gnome-system-monitor
-gnome-characters
-gnome-logs
 gnome-weather
 gnome-clocks
-gnome-font-viewer
-baobab
+gnome-usage
 sushi
 evince
 file-roller
-gthumb
+loupe
 p7zip
 unrar
 
