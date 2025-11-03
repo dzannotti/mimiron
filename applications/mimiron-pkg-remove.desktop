@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Remove Package
+Comment=Remove installed packages from your system
+Icon=gnome-robots
+Exec=ghostty --title="Remove Package" -e bash -c 'export PATH="$HOME/.local/share/mimiron/bin:$PATH"; mimiron-show-logo; mimiron-pkg-remove'
+Terminal=false
+Categories=System;PackageManager;
+Keywords=remove;uninstall;package;pacman;mimiron;
