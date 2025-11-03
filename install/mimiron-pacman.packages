@@ -41,7 +41,6 @@ zoxide
 # CLI Utilities
 bat
 eza
-lsd
 fd
 fzf
 ripgrep

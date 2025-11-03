@@ -33,11 +33,11 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-alias ls="lsd"
-alias l="lsd -l"
-alias la="lsd -a"
-alias lla="lsd -la"
-alias lt="lsd --tree"
+alias ls="eza --color=auto --icons"
+alias l="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
+alias lt="ls --tree"
 alias cat="bat --color always --plain"
 alias grep='grep --color=auto'
 alias mv='mv -v'
