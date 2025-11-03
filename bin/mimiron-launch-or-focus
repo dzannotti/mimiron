@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Launch or focus an application window
+# Launch or focus an application window (GNOME Wayland compatible)
 # Usage: mimiron-launch-or-focus [window-pattern] [launch-command]
 
 if (($# == 0)); then
@@ -11,14 +11,28 @@ fi
 WINDOW_PATTERN="$1"
 LAUNCH_COMMAND="${2:-"$WINDOW_PATTERN"}"
 
-# Try to find and focus the window using wmctrl
-# Search by class name (case-insensitive)
+# Try wmctrl first (works for most apps like VSCode, Obsidian, Ferdium)
 WINDOW_ID=$(wmctrl -lx | grep -i "$WINDOW_PATTERN" | head -n1 | awk '{print $1}')
 
 if [[ -n $WINDOW_ID ]]; then
-  # Window exists, focus it
+  # Window found via wmctrl, focus it
   wmctrl -ia "$WINDOW_ID"
-else
-  # Window doesn't exist, launch the application
-  eval exec "$LAUNCH_COMMAND" &
+  exit 0
 fi
+
+# Fallback: For apps wmctrl can't see (like Chrome on Wayland)
+# Check if process is already running - if so, don't launch duplicate
+# User can use Alt+Tab or Activities to switch to the existing window
+if pgrep -x "chrome" > /dev/null 2>&1 && [[ "$WINDOW_PATTERN" == "chrome" ]]; then
+  # Chrome is already running, don't launch another instance
+  # Just exit - user can Alt+Tab to it
+  exit 0
+fi
+
+if pgrep -x "ghostty" > /dev/null 2>&1 && [[ "$WINDOW_PATTERN" == "ghostty" ]]; then
+  # Ghostty is already running
+  exit 0
+fi
+
+# Window doesn't exist, launch the application
+eval exec "$LAUNCH_COMMAND" &
