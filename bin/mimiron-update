@@ -31,6 +31,7 @@ LOG_FILE="$LOG_DIR/mimiron-update-$(date +%F_%H-%M-%S).log"
 PACCACHE_RETAIN=2     # Keep only the latest 2 versions of packages
 CACHE_DAYS=30         # Delete ~/.cache files older than 30 days
 JOURNAL_RETAIN="7d"   # Keep only 7 days of system logs
+SNAPSHOT_RETAIN=10    # Keep only the 10 newest snapshots
 
 exec > >(tee -a "$LOG_FILE") 2>&1  # Everything goes to log file AND terminal
 
@@ -78,6 +79,20 @@ if command -v snapper &>/dev/null; then
   step "CREATING PRE-UPDATE SNAPSHOT"
   sudo snapper -c root create --description "Before system update ($(date +%F))"
   echo "✓ Snapshot created"
+
+  # Clean up old snapshots (keep only the newest N)
+  step "CLEANING UP OLD SNAPSHOTS (keeping $SNAPSHOT_RETAIN newest)"
+  mapfile -t OLD_SNAPSHOTS < <(sudo snapper -c root list | tail -n +4 | head -n -1 | awk '{print $1}' | sort -rn | tail -n +$((SNAPSHOT_RETAIN + 1)))
+  if ((${#OLD_SNAPSHOTS[@]})); then
+    echo "Deleting ${#OLD_SNAPSHOTS[@]} old snapshots..."
+    for snap in "${OLD_SNAPSHOTS[@]}"; do
+      sudo snapper -c root delete "$snap"
+      echo "  Deleted snapshot #$snap"
+    done
+    echo "✓ Old snapshots cleaned up"
+  else
+    echo "✓ No old snapshots to clean (${SNAPSHOT_RETAIN} or fewer exist)"
+  fi
 else
   echo "⚠ Snapper not available, skipping snapshot"
 fi
@@ -115,15 +130,11 @@ if $DO_CLEAN; then
   step "CLEANING PACKAGE CACHE"
   current_cache=$(du -sh /var/cache/pacman/pkg | cut -f1)
   echo "Current cache size: $current_cache"
-
-  if confirm "Clean old package cache (keep last $PACCACHE_RETAIN)? [y/N]"; then
-    sudo paccache -vrk $PACCACHE_RETAIN
-    sudo paccache -ruk0
-    new_cache=$(du -sh /var/cache/pacman/pkg | cut -f1)
-    echo "New cache size: $new_cache"
-  else
-    echo "Skipped cache cleanup."
-  fi
+  echo "Cleaning old package cache (keeping last $PACCACHE_RETAIN versions)..."
+  sudo paccache -vrk $PACCACHE_RETAIN
+  sudo paccache -ruk0
+  new_cache=$(du -sh /var/cache/pacman/pkg | cut -f1)
+  echo "New cache size: $new_cache"
 
   # Remove Orphaned Packages
   step "REMOVING UNUSED (ORPHANED) PACKAGES"
@@ -131,11 +142,8 @@ if $DO_CLEAN; then
   if ((${#ORPHANS[@]})); then
     echo "Found ${#ORPHANS[@]} orphaned packages:"
     printf '%s\n' "${ORPHANS[@]}"
-    if confirm "Remove these unneeded packages? [y/N]"; then
-      sudo pacman -Rns "${ORPHANS[@]}"
-    else
-      echo "Skipped removing orphans."
-    fi
+    echo "Removing unneeded packages..."
+    sudo pacman -Rns --noconfirm "${ORPHANS[@]}"
   else
     echo "No orphaned packages found. All clean!"
   fi
@@ -144,29 +152,21 @@ if $DO_CLEAN; then
   step "CLEANING ~/.cache DIRECTORY"
   before_cache=$(du -sh ~/.cache | cut -f1)
   echo "Cache size before cleanup: $before_cache"
-
-  if confirm "Delete files older than $CACHE_DAYS days from ~/.cache? [y/N]"; then
-    find ~/.cache -type f -mtime +$CACHE_DAYS -print -delete
-    find ~/.cache -type d -empty -print -delete
-    after_cache=$(du -sh ~/.cache | cut -f1)
-    echo "Cache size after cleanup: $after_cache"
-  else
-    echo "Skipped cleaning ~/.cache."
-  fi
+  echo "Deleting files older than $CACHE_DAYS days from ~/.cache..."
+  find ~/.cache -type f -mtime +$CACHE_DAYS -print -delete
+  find ~/.cache -type d -empty -print -delete
+  after_cache=$(du -sh ~/.cache | cut -f1)
+  echo "Cache size after cleanup: $after_cache"
 
   # Clean old system logs
   step "VACUUMING SYSTEM LOGS (journald)"
   before_logs=$(journalctl --disk-usage | awk '{print $NF}')
   echo "Current journal size: $before_logs"
-
-  if confirm "Delete logs older than $JOURNAL_RETAIN? [y/N]"; then
-    sudo journalctl --rotate
-    sudo journalctl --vacuum-time=$JOURNAL_RETAIN
-    after_logs=$(journalctl --disk-usage | awk '{print $NF}')
-    echo "Journal size after vacuum: $after_logs"
-  else
-    echo "Skipped journald cleanup."
-  fi
+  echo "Deleting logs older than $JOURNAL_RETAIN..."
+  sudo journalctl --rotate
+  sudo journalctl --vacuum-time=$JOURNAL_RETAIN
+  after_logs=$(journalctl --disk-usage | awk '{print $NF}')
+  echo "Journal size after vacuum: $after_logs"
 
   # Check for Failed Services
   step "CHECKING FOR FAILED SYSTEMD SERVICES"

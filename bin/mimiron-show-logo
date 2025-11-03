@@ -1,5 +1,7 @@
 #!/bin/bash
 
 clear
+# Use MIMIRON_PATH if set, otherwise default to the repo location
+MIMIRON_PATH="${MIMIRON_PATH:-$HOME/.local/share/mimiron}"
 source "$MIMIRON_PATH/ascii-art.sh"
 echo

@@ -17,6 +17,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 bindkey "\e[3~" delete-char
 bindkey "\e[H"  beginning-of-line
 bindkey "\e[F"  end-of-line
+bindkey "\e[27;2;13~" self-insert-unmeta  # Shift+Enter for newline without executing
 
 # fzf integration for better Ctrl+R history search
 source /usr/share/fzf/key-bindings.zsh
