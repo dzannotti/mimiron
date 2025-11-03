@@ -8,12 +8,10 @@ format = """
 [](bg0)\
 $os\
 $username\
-[](fg:bg0 bg:bg1)\
+[ ](bg0)\
 $directory\
-[](fg:bg1 bg:bg2)\
 $git_branch\
 $git_status\
-[](fg:bg2 bg:bg3)\
 $c\
 $cpp\
 $elixir\
@@ -30,13 +28,7 @@ $php\
 $python\
 $rust\
 $scala\
-[](fg:bg3 bg:bg4)\
-$conda\
-$docker_context\
-$pixi\
-[](fg:bg4 bg:bg5)\
 $time\
-[](fg:bg5)\
 $cmd_duration\
 $line_break\
 [╰](gray)\
@@ -80,7 +72,7 @@ RedHatEnterprise = " 󱄛 "
 disabled = false
 style = "bg:bg1 fg:text"
 # home_symbol = ""
-format = "[  $path ]($style)"
+format = "[](bg1)[  $path ]($style)[ ](bg1)"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -105,8 +97,8 @@ truncation_symbol = "…/"
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:bg5 fg:text"
-format = '[  $time ]($style)'
+style = "bg:bg4 fg:text"
+format = '[](bg4)[  $time ]($style)[ ](bg4)'
 
 [cmd_duration]
 disabled = false
@@ -114,7 +106,7 @@ show_milliseconds = true
 show_notifications = true
 min_time = 100
 min_time_to_notify = 45000
-format = "[  in $duration ]($style)"
+format = "[ ](bg5)[  in $duration ]($style)[](bg5)"
 style = "fg:lavender"
 
 [character]
@@ -125,7 +117,7 @@ error_symbol = '[](bold fg:red)'
 [git_branch]
 symbol = ""
 style = "bg:bg2 fg:text"
-format = '[ $symbol $branch ]($style)'
+format = '[](bg2)[ $symbol $branch ]($style)[ ](bg2)'
 
 [git_status]
 disabled = false
@@ -164,77 +156,78 @@ format = '[ $symbol ($version) ]($style)'
 [cpp]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [elixir]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [elm]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [golang]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [gradle]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [haskell]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [java]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [julia]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [kotlin]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [nodejs]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [nim]
 symbol = "󰆥"
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [php]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [python]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [rust]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
+
 
 [scala]
 symbol = ""
 style = "bg:bg3 fg:text"
-format = '[ $symbol ($version) ]($style)'
+format = '[](bg3)[ $symbol ($version) ]($style)[ ](bg3)'
 
 [palettes.pastel]
 bg0 = '90'
