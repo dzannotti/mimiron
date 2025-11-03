@@ -48,6 +48,7 @@ fastfetch
 btop
 conky
 dust
+ncdu
 gum
 jq
 tree-sitter-cli
