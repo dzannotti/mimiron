@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=Update Mimiron
 Comment=Pull latest changes and update Mimiron configuration
-Icon=system-software-update
+Icon=gnome-robots
 Exec=ghostty --title="Mimiron Update" -e bash -c 'export PATH="$HOME/.local/share/mimiron/bin:$PATH"; mimiron-show-logo; mimiron-update; mimiron-show-done'
 Terminal=false
 Categories=System;Settings;
