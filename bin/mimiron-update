@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 # ============================================================================
 # Mimiron System Update & Maintenance Script
 # Combines system updates with spring-clean maintenance tasks
