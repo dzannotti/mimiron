@@ -35,6 +35,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${C
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom3/ binding "<Primary><Alt>k"
 
 # Custom4: Ctrl+Alt+L - Ghostty terminal (launch or focus)
+# Note: Ghostty on Wayland not visible to wmctrl, won't auto-focus but prevents duplicates
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom4/ name "Ghostty"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom4/ command "$HOME/.local/share/mimiron/bin/mimiron-launch-or-focus ghostty"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom4/ binding "<Primary><Alt>l"
