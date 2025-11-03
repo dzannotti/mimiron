@@ -130,6 +130,18 @@ Perfect for ultrawide monitor users who prefer traditional desktop paradigms.
 - Git configuration
 - Application preferences and dotfiles
 
+### Keyboard Shortcuts
+
+Global run-or-raise shortcuts for quick application switching (via [run-or-raise](https://github.com/CZ-NIC/run-or-raise) GNOME extension):
+
+- **Ctrl+Alt+J** - Chrome (focus or launch)
+- **Ctrl+Alt+H** - Obsidian (focus or launch)
+- **Ctrl+Alt+K** - VSCode (focus or launch)
+- **Ctrl+Alt+L** - Ghostty terminal (focus or launch)
+- **Ctrl+Alt+;** - Ferdium (focus or launch)
+
+Configuration file: `~/.config/run-or-raise/shortcuts.conf`
+
 ## Goals
 
 Transform a minimal Arch installation into a fully configured development environment with:
