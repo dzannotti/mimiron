@@ -55,13 +55,13 @@ step() {
 # Parse options
 # -------------------------------------
 
-DO_CLEAN=false
+DO_CLEAN=true  # Clean by default
 while [[ $# -gt 0 ]]; do
   case $1 in
-    -c|--clean) DO_CLEAN=true; shift ;;
+    --no-clean) DO_CLEAN=false; shift ;;
     -h|--help)
-      echo "Usage: $0 [--clean]"
-      echo "       --clean     Also perform spring-clean maintenance tasks"
+      echo "Usage: $0 [--no-clean]"
+      echo "       --no-clean  Skip spring-clean maintenance tasks"
       exit 0 ;;
     *) echo "Unknown option: $1" ; exit 2 ;;
   esac
