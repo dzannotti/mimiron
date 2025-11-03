@@ -43,9 +43,9 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${C
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom5/ command "$HOME/.local/share/mimiron/bin/mimiron-launch-or-focus ferdium"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom5/ binding "<Primary><Alt>semicolon"
 
-# Custom6: Ctrl+Shift+4 - Screenshot with annotation
+# Custom6: Ctrl+Shift+4 - Quick screenshot (macOS-like)
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom6/ name "Screenshot"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom6/ command "$HOME/.local/share/mimiron/bin/mimiron-cmd-screenshot region"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom6/ command "$HOME/.local/share/mimiron/bin/mimiron-screenshot-quick region"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${CUSTOM_KEYBINDINGS_PATH}/custom6/ binding "<Primary><Shift>4"
 
 # Custom7: Ctrl+Shift+F11 - Toggle audio output between A50 and speakers
@@ -60,5 +60,5 @@ echo "  Ctrl+Alt+J     → Chrome (launch or focus)"
 echo "  Ctrl+Alt+K     → VSCode (launch or focus)"
 echo "  Ctrl+Alt+L     → Ghostty (launch or focus)"
 echo "  Ctrl+Alt+;     → Ferdium (launch or focus)"
-echo "  Ctrl+Shift+4   → Screenshot with annotation"
+echo "  Ctrl+Shift+4   → Quick screenshot (save to Desktop)"
 echo "  Ctrl+Shift+F11 → Toggle audio output (A50 ↔ Speakers)"
