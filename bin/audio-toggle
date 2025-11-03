@@ -1,16 +1,16 @@
-#!/usr/bin/env bash
+#\!/usr/bin/env bash
 
 # Toggle between two audio output devices
 
-# Get only sink lines (not streams)
-SINKS=$(wpctl status | awk "/Sinks:/,/Sources:/" | grep -E "^\s*\*?\s*[0-9]+\." | grep -v "output_")
+# Get Audio sink lines only
+SINKS=$(wpctl status | awk '/^Audio/,/^Video/' | awk '/Sinks:/,/Sources:/' | grep -E "^[[:space:]]*[│*][[:space:]]*[0-9]+\.")
 
 # Get device IDs
-DEVICE_1_ID=$(echo "$SINKS" | grep "A50" | sed -E "s/^[^0-9]*([0-9]+).*/\1/")
-DEVICE_2_ID=$(echo "$SINKS" | grep "Family 17h" | sed -E "s/^[^0-9]*([0-9]+).*/\1/")
+DEVICE_1_ID=$(echo "$SINKS" | grep "A50" | grep -oE "[0-9]+" | head -1)
+DEVICE_2_ID=$(echo "$SINKS" | grep "Family 17h" | grep -oE "[0-9]+" | head -1)
 
 # Get current default (has asterisk)
-CURRENT_ID=$(echo "$SINKS" | grep "\*" | sed -E "s/^[^0-9]*([0-9]+).*/\1/")
+CURRENT_ID=$(echo "$SINKS" | grep "\*" | grep -oE "[0-9]+" | head -1)
 
 # Toggle
 if [ "$CURRENT_ID" = "$DEVICE_1_ID" ]; then
