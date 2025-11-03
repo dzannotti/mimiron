@@ -68,7 +68,7 @@ To update your Mimiron configuration after changes to the repo:
 
 ```bash
 # Pull latest changes and re-apply dotfiles/config
-~/.local/share/mimiron/update.sh
+mimiron-update
 ```
 
 This will:
@@ -76,6 +76,29 @@ This will:
 - Re-copy all dotfiles to ~/.config
 - Update system defaults (zsh, gpg)
 - Preserve your local customizations
+- Automatically clean up old snapshots (keeps 10 newest)
+
+### Running Individual Setup Components
+
+If you need to re-run a specific setup component (e.g., after importing GPG keys):
+
+```bash
+# Run a specific component
+mimiron-apply gpg-setup
+
+# Available components:
+mimiron-apply dns-resolver      # Configure systemd-resolved DNS
+mimiron-apply firewall          # Set up UFW firewall
+mimiron-apply gnome-extensions  # Install GNOME extensions
+mimiron-apply gdm-config        # Configure GDM login screen
+mimiron-apply gpg-setup         # Configure GPG for commit signing
+mimiron-apply all               # Run all components (same as first-run.sh)
+```
+
+This is useful when:
+- Testing individual setup scripts
+- Applying specific configs without re-running entire first-run
+- Setting up GPG after importing your keys on a fresh install
 
 ## Philosophy
 

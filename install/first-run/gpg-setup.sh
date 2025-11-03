@@ -1,59 +1,81 @@
 #!/bin/bash
 # GPG Setup for commit signing
+# Configures git to use existing GPG key or guides setup
 
 set -euo pipefail
 
-USER_EMAIL="dzannotti@me.com"
-USER_NAME="dzannotti"
+USER_EMAIL="${GIT_EMAIL:-dzannotti@me.com}"
+USER_NAME="${GIT_NAME:-dzannotti}"
 
 echo "Setting up GPG for commit signing..."
+echo
 
-# Check if GPG key already exists
-if gpg --list-secret-keys --keyid-format=long "$USER_EMAIL" &>/dev/null; then
-    echo "✓ GPG key already exists for $USER_EMAIL"
-    KEY_ID=$(gpg --list-secret-keys --keyid-format=long "$USER_EMAIL" | grep sec | awk '{print $2}' | cut -d'/' -f2 | head -1)
+# Check if any GPG secret key exists
+if gpg --list-secret-keys --keyid-format=long 2>/dev/null | grep -q "^sec"; then
+    # Keys exist - find the right one
+    if gpg --list-secret-keys --keyid-format=long "$USER_EMAIL" &>/dev/null; then
+        # Key exists for this email
+        KEY_ID=$(gpg --list-secret-keys --keyid-format=long "$USER_EMAIL" | grep sec | awk '{print $2}' | cut -d'/' -f2 | head -1)
+        echo "✓ Found existing GPG key for $USER_EMAIL"
+        echo "  Key ID: $KEY_ID"
+    else
+        # Keys exist but not for this email - list them
+        echo "⚠ No GPG key found for $USER_EMAIL"
+        echo
+        echo "Available keys:"
+        gpg --list-secret-keys --keyid-format=long | grep -E "^sec|^uid" | sed 's/^/  /'
+        echo
+        echo "To import your key, use: gpg --import /path/to/private-key.asc"
+        echo "Then run: mimiron-apply gpg-setup"
+        exit 1
+    fi
 else
-    echo "Creating GPG key for $USER_EMAIL..."
-
-    # Create temporary GPG config
-    cat > /tmp/gpg-batch.conf << EOF
-Key-Type: RSA
-Key-Length: 4096
-Subkey-Type: RSA
-Subkey-Length: 4096
-Name-Real: $USER_NAME
-Name-Email: $USER_EMAIL
-Expire-Date: 0
-%no-protection
-%commit
-EOF
-
-    # Generate key
-    gpg --batch --gen-key /tmp/gpg-batch.conf 2>&1 | grep -v "^gpg:"
-    rm /tmp/gpg-batch.conf
-
-    # Get the key ID
-    KEY_ID=$(gpg --list-secret-keys --keyid-format=long "$USER_EMAIL" | grep sec | awk '{print $2}' | cut -d'/' -f2 | head -1)
-    echo "✓ GPG key created (ID: $KEY_ID)"
+    # No keys at all
+    echo "⚠ No GPG keys found on this system"
+    echo
+    echo "To set up GPG signing:"
+    echo "  1. Import your existing key:"
+    echo "     gpg --import /path/to/private-key.asc"
+    echo
+    echo "  2. Or transfer from another machine:"
+    echo "     # On old machine:"
+    echo "     gpg --export-secret-keys $USER_EMAIL > private-key.asc"
+    echo "     # On this machine:"
+    echo "     gpg --import private-key.asc"
+    echo
+    echo "  3. Then run: mimiron-apply gpg-setup"
+    echo
+    exit 1
 fi
 
-# Configure git
-if [ "$(git config --global user.signingkey || echo '')" != "$KEY_ID" ]; then
+# Configure git to use the key
+CURRENT_KEY=$(git config --global user.signingkey || echo '')
+if [ "$CURRENT_KEY" != "$KEY_ID" ]; then
     git config --global user.signingkey "$KEY_ID"
-    echo "✓ Git configured with GPG key"
+    echo "✓ Git configured with GPG key $KEY_ID"
+else
+    echo "✓ Git already configured with this key"
 fi
 
-if [ "$(git config --global commit.gpgsign || echo '')" != "true" ]; then
+if [ "$(git config --global commit.gpgsign || echo 'false')" != "true" ]; then
     git config --global commit.gpgsign true
     echo "✓ Git commit signing enabled"
+else
+    echo "✓ Git commit signing already enabled"
 fi
 
-# Export public key
-gpg --armor --export "$KEY_ID" > ~/.local/share/mimiron/gpg-public-key.asc
-echo "✓ Public key exported to ~/.local/share/mimiron/gpg-public-key.asc"
-
-echo
-echo "  To enable verified commits on GitHub:"
-echo "  1. Visit: https://github.com/settings/gpg/new"
-echo "  2. Copy key: cat ~/.local/share/mimiron/gpg-public-key.asc | wl-copy"
-echo "  3. Paste and save"
+# Export public key for GitHub (local-only, not committed)
+if [ -n "${KEY_ID:-}" ]; then
+    gpg --armor --export "$KEY_ID" > ~/.local/share/mimiron/gpg-public-key.asc
+    echo "✓ Public key exported (local-only)"
+    echo
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "To add your key to GitHub for verified commits:"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "1. Copy your public key:"
+    echo "   cat ~/.local/share/mimiron/gpg-public-key.asc | wl-copy"
+    echo
+    echo "2. Add to GitHub:"
+    echo "   https://github.com/settings/gpg/new"
+    echo
+fi
