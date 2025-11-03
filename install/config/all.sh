@@ -3,7 +3,7 @@ source "$MIMIRON_INSTALL/config/zsh.sh"
 
 source "$MIMIRON_INSTALL/config/hardware/bluetooth.sh"
 source "$MIMIRON_INSTALL/config/hardware/network.sh"
-source "$MIMIRON_INSTALL/config/cloudflare-dns.sh"
+#source "$MIMIRON_INSTALL/config/cloudflare-dns.sh"
 source "$MIMIRON_INSTALL/config/hardware/nvidia.sh"
 source "$MIMIRON_INSTALL/config/hardware/printer.sh"
 source "$MIMIRON_INSTALL/config/hardware/set-wireless-regdom.sh"
