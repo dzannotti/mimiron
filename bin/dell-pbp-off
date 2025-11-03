@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Disable PBP/PIP mode on Dell ultrawide monitor (return to single mode)
-dell-monitor single_mode
+/home/dzannotti/.local/share/mimiron/bin/dell-monitor single_mode
 # Update state file for toggle script
 mkdir -p "$HOME/.cache"
 echo "off" > "$HOME/.cache/mimiron-pbp-state"
