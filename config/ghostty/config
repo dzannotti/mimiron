@@ -29,6 +29,15 @@ clipboard-paste-bracketed-safe = false
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
 
+# Pass through system keybindings to GNOME
+keybind = ctrl+space=unbind
+keybind = ctrl+alt+h=unbind
+keybind = ctrl+alt+j=unbind
+keybind = ctrl+alt+k=unbind
+keybind = ctrl+alt+l=unbind
+keybind = ctrl+alt+semicolon=unbind
+keybind = ctrl+shift+4=unbind
+
 # Fix Delete key (ensure it sends proper escape sequence)
 keybind = delete=text:\x1b[3~
 keybind = shift+enter=text:\x1b\r

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Launch or focus an application window (GNOME Wayland compatible)
+# Launch or focus an application window (GNOME Wayland compatible with Window Calls extension)
 # Usage: mimiron-launch-or-focus [window-pattern] [launch-command]
 
 if (($# == 0)); then
@@ -11,7 +11,7 @@ fi
 WINDOW_PATTERN="$1"
 LAUNCH_COMMAND="${2:-"$WINDOW_PATTERN"}"
 
-# Try wmctrl first (works for most apps like VSCode, Obsidian, Ferdium)
+# Try wmctrl first (works for X11 apps like VSCode, Obsidian, Ferdium)
 WINDOW_ID=$(wmctrl -lx | grep -i "$WINDOW_PATTERN" | head -n1 | awk '{print $1}')
 
 if [[ -n $WINDOW_ID ]]; then
@@ -20,18 +20,29 @@ if [[ -n $WINDOW_ID ]]; then
   exit 0
 fi
 
-# Fallback: For apps wmctrl can't see (like Chrome on Wayland)
-# Check if process is already running - if so, don't launch duplicate
-# User can use Alt+Tab or Activities to switch to the existing window
-if pgrep -x "chrome" > /dev/null 2>&1 && [[ "$WINDOW_PATTERN" == "chrome" ]]; then
-  # Chrome is already running, don't launch another instance
-  # Just exit - user can Alt+Tab to it
-  exit 0
-fi
+# Fallback: Try Window Calls extension for Wayland apps (Chrome, Ghostty)
+# This requires the window-calls@domandoman.xyz extension to be installed
+WINDOW_INFO=$(gdbus call --session \
+  --dest org.gnome.Shell \
+  --object-path /org/gnome/Shell/Extensions/Windows \
+  --method org.gnome.Shell.Extensions.Windows.List 2>/dev/null | \
+  sed "s/^('//; s/',)$//")
 
-if pgrep -x "ghostty" > /dev/null 2>&1 && [[ "$WINDOW_PATTERN" == "ghostty" ]]; then
-  # Ghostty is already running
-  exit 0
+if [[ -n "$WINDOW_INFO" ]]; then
+  # Extract window id matching the pattern (case-insensitive)
+  WAYLAND_WINDOW_ID=$(echo "$WINDOW_INFO" | jq -r --arg pattern "$WINDOW_PATTERN" \
+    '.[] | select((.wm_class | ascii_downcase | contains($pattern | ascii_downcase)) or (.wm_class_instance | ascii_downcase | contains($pattern | ascii_downcase))) | .id' \
+    2>/dev/null | head -n1)
+
+  if [[ -n "$WAYLAND_WINDOW_ID" ]]; then
+    # Activate the window using Window Calls extension
+    gdbus call --session \
+      --dest org.gnome.Shell \
+      --object-path /org/gnome/Shell/Extensions/Windows \
+      --method org.gnome.Shell.Extensions.Windows.Activate \
+      "$WAYLAND_WINDOW_ID" >/dev/null 2>&1
+    exit 0
+  fi
 fi
 
 # Window doesn't exist, launch the application
