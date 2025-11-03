@@ -30,6 +30,10 @@ echo "→ Configuring GDM login screen..."
 bash "$MIMIRON_PATH/install/first-run/gdm-config.sh"
 
 echo
+echo "→ Setting up GPG for commit signing..."
+bash "$MIMIRON_PATH/install/first-run/gpg-setup.sh"
+
+echo
 echo "→ Showing welcome message..."
 bash "$MIMIRON_PATH/install/first-run/welcome.sh"
 

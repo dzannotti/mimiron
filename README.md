@@ -57,6 +57,7 @@ This will:
 - Configure DNS resolver
 - Set up firewall
 - Install and enable GNOME extensions
+- Set up GPG key for commit signing
 - Show welcome notifications
 
 You may need to restart GNOME Shell (Alt+F2, type 'r') or log out/in for all changes to take effect.
